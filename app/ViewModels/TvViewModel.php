@@ -3,6 +3,7 @@
 namespace App\ViewModels;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Spatie\ViewModels\ViewModel;
 
 class TvViewModel extends ViewModel
@@ -61,9 +62,10 @@ class TvViewModel extends ViewModel
           ? 'https://image.tmdb.org/t/p/w500' . $tvshow['poster_path']
           : "https://via.placeholder.com/500x750?text=ERROR",
         'first_air_date' => Carbon::parse($tvshow['first_air_date'])->format('M d, Y'),
+        'link' => $tvshow['id'] . '/' . Str::slug($tvshow['name']),
         'genres' => $genresFormatted,
       ])->only([
-        'poster_path', 'id', 'name', 'vote_average', 'first_air_date'
+        'poster_path', 'id', 'name', 'vote_average', 'first_air_date', 'link'
       ]);
     });
   }

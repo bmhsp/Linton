@@ -16,7 +16,7 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-		$movie = Http::withToken(config('services.tmdb.token'))
+		$movies = Http::withToken(config('services.tmdb.token'))
 			->get('https://api.themoviedb.org/3/trending/movie/day')
 			->json()['results'];
 
@@ -24,11 +24,11 @@ class HomeController extends Controller
 			->get('https://api.themoviedb.org/3/trending/tv/day')
 			->json()['results'];
 
-		$peson = Http::withToken(config('services.tmdb.token'))
+		$persons = Http::withToken(config('services.tmdb.token'))
 			->get('https://api.themoviedb.org/3/trending/person/day')
 			->json()['results'];
 
-		$viewModels = new HomeViewModel($movie,$tv,	$peson);
+		$viewModels = new HomeViewModel($movies, $tv, $persons);
 
 		return view('home.index', $viewModels);
 	}

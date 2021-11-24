@@ -2,6 +2,8 @@
 
 namespace App\ViewModels;
 
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Spatie\ViewModels\ViewModel;
 
 class MovieGenreViewModel extends ViewModel
@@ -41,10 +43,11 @@ class MovieGenreViewModel extends ViewModel
           ? 'https://image.tmdb.org/t/p/w500/' . $card['poster_path']
           : "https://via.placeholder.com/500x750?text=ERROR",
         'release_date' => isset($card['release_date'])
-          ? \Carbon\Carbon::parse($card['release_date'])->format('M d, Y')
+          ? Carbon::parse($card['release_date'])->format('M d, Y')
           : 'Future',
+        'link' => $card['id'] . '/' . Str::slug($card['title']),
       ])->only([
-        'poster_path', 'id', 'title', 'vote_average', 'release_date'
+        'poster_path', 'id', 'title', 'vote_average', 'release_date', 'link'
       ]);
     });
   }

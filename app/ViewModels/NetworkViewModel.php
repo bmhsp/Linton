@@ -3,6 +3,7 @@
 namespace App\ViewModels;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Spatie\ViewModels\ViewModel;
 
 class NetworkViewModel extends ViewModel
@@ -31,6 +32,7 @@ class NetworkViewModel extends ViewModel
           ? 'https://image.tmdb.org/t/p/w500' . $tvshow['poster_path']
           : "https://via.placeholder.com/500x750?text=ERROR",
         'release_date' => Carbon::parse($tvshow['first_air_date'])->format('M d, Y'),
+        'link' => $tvshow['id'] . '/' . Str::slug($tvshow['name']),
       ]);
     });
   }

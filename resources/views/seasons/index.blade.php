@@ -4,8 +4,10 @@
 
 @include('partials.navbar')
 
-<div class="w-full py-6">
-  <div class="mt-8 px-6 md:px-10 bg-gray-700">
+<img src="{{ $getTv['backdrop_path'] }}" alt="{{ $getTv['name'] }}" class="w-full fixed">
+
+<div class="w-full py-6 relative">
+  <div class="mt-8 px-6 md:px-10 bg-gradient-to-r from-gray-900 to-transparent">
     <div class="flex items-center gap-3 py-3">
       <a href="/tv/{{ $getTv['slug'] }}">
         <img src="{{ $getTv['tv_poster'] }}" alt="{{ $getTv['name'] }}" class="w-16 rounded-md hover:opacity-75 duration-200">
@@ -17,10 +19,10 @@
               {{ $getTv['original_name'] }} 
             </h2>
           </a>
-          <h2 class="text-gray-300 font-normal text-base md:text-2xl">({{ $getTv['tv_year_date'] }})</h2>
+          <h2 class="text-gray-200 font-normal text-base md:text-2xl">({{ $getTv['tv_year_date'] }})</h2>
         </div>
         
-        <a href="/tv/{{ $getTv['slug'] }}" class="text-gray-300 hover:text-gray-400 duration-200 flex items-center gap-1 w-max text-xs md:text-base">
+        <a href="/tv/{{ $getTv['slug'] }}" class="text-gray-200 hover:text-gray-400 duration-200 flex items-center gap-1 w-max text-xs md:text-base">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-3 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
@@ -30,7 +32,8 @@
     </div>
   </div>
 
-  <div class="seasons container px-3 md:px-8 mx-auto divide-y divide-gray-500">
+  <!-- seasons -->
+  <div class="seasons bg-gray-900 container px-3 md:px-8 mx-auto divide-y divide-gray-500">
     @foreach ($seasons as $season)
       <div class="grid grid-cols-12 gap-6">
         <div class="col-span-4 md:col-span-2 py-6">

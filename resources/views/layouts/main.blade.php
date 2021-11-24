@@ -20,6 +20,21 @@
     @livewireScripts
       
     @yield('scripts')
+
+    <!-- fill navbar on scroll -->
+    <script>
+      window.onscroll = function() {
+        fillNavbar();
+      };
+  
+      function fillNavbar() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+          document.getElementById("navbar").classList.add("bg-gray-900", "duration-300", "ease-in-out");
+        } else {
+          document.getElementById("navbar").classList.remove("bg-gray-900");
+        }
+      }
+    </script>
     
   </body>
 </html>

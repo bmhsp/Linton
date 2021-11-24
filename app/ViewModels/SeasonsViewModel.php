@@ -23,7 +23,7 @@ class SeasonsViewModel extends ViewModel
       return collect($movie)->merge([
         'poster_path' => $movie['poster_path']
           ? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path']
-          : 'https://via.placeholder.com/500x750?ERROR',
+          : 'https://via.placeholder.com/500x750?text=ERROR',
         'year_date' => Carbon::parse($movie['air_date'])->format('Y'),
         'air_date' => $movie['air_date'] != null
           ? ' aired on ' . Carbon::parse($movie['air_date'])->format('d F Y')
@@ -40,10 +40,13 @@ class SeasonsViewModel extends ViewModel
       'slug' =>  $this->seasons['id'] . '/' . Str::slug($this->seasons['name']),
       'tv_poster' => $this->seasons['poster_path']
         ? 'https://image.tmdb.org/t/p/w500' . $this->seasons['poster_path']
-        : 'https://via.placeholder.com/500x750?ERROR',
+        : 'https://via.placeholder.com/500x750?text=ERROR',
+      'backdrop_path' => $this->seasons['backdrop_path']
+        ? 'https://image.tmdb.org/t/p/w500' . $this->seasons['backdrop_path']
+        : 'https://via.placeholder.com/750x500?text=ERROR',
       'tv_year_date' => Carbon::parse($this->seasons['first_air_date'])->format('Y'),
     ])->only([
-      'id', 'name', 'original_name', 'poster_path', 'tv_poster', 'first_air_date', 'tv_year_date', 'slug'
+      'id', 'name', 'original_name', 'poster_path', 'tv_poster', 'first_air_date', 'tv_year_date', 'slug', 'backdrop_path'
     ]);
   }
 }

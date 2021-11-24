@@ -28,6 +28,7 @@ class MovieViewModel extends ViewModel
 			'backdrop_path' => $this->movie['backdrop_path']
 				? 'https://image.tmdb.org/t/p/w500' . $this->movie['backdrop_path']
 				: 'https://via.placeholder.com/750x500?text=ERROR',
+			'overview' => $this->movie['overview'] ? $this->movie['overview'] : "Sorry we don't have enough data for this movie.",
 			'budget' => '$' . number_format($this->movie['budget']),
 			'revenue' => '$' . number_format($this->movie['revenue']),
 			'release_date' => Carbon::parse($this->movie['release_date'])->format('d F Y'),
@@ -124,8 +125,9 @@ class MovieViewModel extends ViewModel
 					? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path']
 					: "https://via.placeholder.com/500x750?text=ERROR",
 				'release_date' => \Carbon\Carbon::parse($movie['release_date'])->format('M d, Y'),
+				'link' => $movie['id'] . '/' . Str::slug($movie['title']),
 			])->only([
-				'id', 'title', 'release_date', 'poster_path', 'vote_average'
+				'id', 'title', 'release_date', 'poster_path', 'vote_average', 'link'
 			]);
 		});
 	}

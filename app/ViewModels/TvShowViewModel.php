@@ -30,10 +30,11 @@ class TvShowViewModel extends ViewModel
         : 'https://via.placeholder.com/750x500?text=ERROR',
       'production_countries' => $this->tvshow['production_countries']
         ? $this->tvshow['production_countries'][0]['name']
-        : null,
+        : 'Unknown',
       'first_air_date' => Carbon::parse($this->tvshow['first_air_date'])->format('d F Y'),
       'link' =>  $this->tvshow['id'] . '/' . Str::slug($this->tvshow['name']),
       'created_by' => $this->tvshow['created_by'] ? $this->tvshow['created_by'][0]['name'] : null,
+      'episode_run_time' => $this->tvshow['episode_run_time'] ? $this->tvshow['episode_run_time'][0] . 'm' : '0m',
     ])->only([
       'id', 'name', 'poster_path', 'backdrop_path', 'vote_average', 'type', 'first_air_date', 'videos', 'episode_run_time', 'genres', 'credits', 'seasons', 'networks', 'images', 'overview', 'status', 'created_by', 'production_countries', 'link', 'original_name'
     ]);
@@ -99,7 +100,7 @@ class TvShowViewModel extends ViewModel
   {
     $networks = collect($this->tvshow['networks']);
 
-    return collect($networks)->map(function ($network) {
+    return collect($networks)->take(2)->map(function ($network) {
       return collect($network)->merge([
         'logo_path' => $network['logo_path']
           ? 'https://image.tmdb.org/t/p/w300' . $network['logo_path']
@@ -130,8 +131,9 @@ class TvShowViewModel extends ViewModel
           ? 'https://image.tmdb.org/t/p/w500/' . $tvshow['poster_path']
           : "https://via.placeholder.com/500x750?text=ERROR",
         'first_air_date' => Carbon::parse($tvshow['first_air_date'])->format('M d, Y'),
+        'link' => $tvshow['id'] . '/' . Str::slug($tvshow['name']),
       ])->only([
-        'poster_path', 'id', 'name', 'vote_average', 'overview', 'first_air_date'
+        'poster_path', 'id', 'name', 'vote_average', 'overview', 'first_air_date', 'link'
       ]);
     });
   }

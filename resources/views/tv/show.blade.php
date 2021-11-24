@@ -79,7 +79,7 @@
           <span class="mx-2">|</span>
           <span>{{ $tvshow['type'] }}</span>
           <span class="mx-2">|</span>
-          <span>{{ $tvshow['episode_run_time'][0] }}m</span>
+          <span>{{ $tvshow['episode_run_time'] }}</span>
         </div>
 
         <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-6">
@@ -157,29 +157,31 @@
       
       <div class="lg:col-span-1 w-full">
         <h2 class="text-xl md:text-2xl font-semibold mb-3">Info</h2>
-        <div class="bg-gray-500 bg-opacity-20 p-3 rounded-md border border-gray-800 shadow-lg">
+        <div class="bg-gray-300 bg-opacity-20 p-3 rounded-md border border-gray-800 shadow-lg">
           <div class="mb-3">
             <h3 class="font-medium mb-1">Original Name</h3>
-            <p class="text-gray-400">{{ $tvshow['original_name'] }}</p>
+            <p class="text-gray-300">{{ $tvshow['original_name'] }}</p>
           </div>
           <div class="mb-3">
             <h3 class="font-medium mb-1">First Air Date</h3>
-            <p class="text-gray-400">{{ $tvshow['first_air_date'] }}</p>
+            <p class="text-gray-300">{{ $tvshow['first_air_date'] }}</p>
           </div>
           <div class="mb-3">
             <h3 class="font-medium mb-1">Production</h3>
-            <p class="text-gray-400">{{ $tvshow['production_countries'] }}</p>
+            <p class="text-gray-300">{{ $tvshow['production_countries'] }}</p>
           </div>
-          <div class="mb-3">
-            <h3 class="font-medium mb-2">Networks</h3>
-            <div class="flex flex-wrap gap-6 w-full">
-              @foreach ($getNetwork as $network)
-                <a href="/network/{{ $network['link'] }}" class="w-2/5 my-auto">
-                  <img src="{{ $network['logo_path'] }}" alt="{{ $network['name'] }}" class="w-2/5 lg:w-full h-full">
-                </a>
-              @endforeach
+          @if ($getNetwork != '[]')
+            <div class="mb-3">
+              <h3 class="font-medium mb-2">Networks</h3>
+              <div class="flex flex-wrap gap-6 w-full items-center">
+                @foreach ($getNetwork as $network)
+                  <a href="/network/{{ $network['link'] }}" class="w-2/5 my-auto">
+                    <img src="{{ $network['logo_path'] }}" alt="{{ $network['name'] }}" class="w-2/5 lg:w-full h-full">
+                  </a>
+                @endforeach
+              </div>
             </div>
-          </div>
+          @endif
         </div>
       </div>
     </div>

@@ -2,6 +2,8 @@
 
 namespace App\ViewModels;
 
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Spatie\ViewModels\ViewModel;
 
 class TvKeywordViewModel extends ViewModel
@@ -41,10 +43,11 @@ class TvKeywordViewModel extends ViewModel
           ? 'https://image.tmdb.org/t/p/w500/' . $card['poster_path']
           : "https://via.placeholder.com/500x750?text=ERROR",
         'first_air_date' => isset($card['first_air_date'])
-          ? \Carbon\Carbon::parse($card['first_air_date'])->format('M d, Y')
+          ? Carbon::parse($card['first_air_date'])->format('M d, Y')
           : 'Future',
+        'link' => $card['id'] . '/' . Str::slug($card['name']),
       ])->only([
-        'poster_path', 'id', 'name', 'vote_average', 'first_air_date'
+        'poster_path', 'id', 'name', 'vote_average', 'first_air_date', 'link'
       ]);
     });
   }

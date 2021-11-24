@@ -4,8 +4,10 @@
 
 @include('partials.navbar')
 
-<div class="w-full py-6">
-  <div class="mt-8 px-6 md:px-10 bg-gray-700">
+<img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="w-full fixed">
+
+<div class="w-full py-6 relative">
+  <div class="mt-8 px-6 md:px-10 bg-gradient-to-r from-gray-900 to-transparent">
     <div class="flex items-center gap-3 py-3">
       <a href="/tv/{{ $getTv['id'] . $getSeason['season_link'] }}">
         <img src="{{ $getSeason['poster_path'] }}" alt="{{ $getSeason['name'] }}" class="w-16 rounded-md hover:opacity-75 duration-200">
@@ -17,9 +19,9 @@
               {{ $getSeason['name'] }} 
             </h2>
           </a>
-          <h2 class="text-gray-300 text-base md:text-2xl font-normal">({{ $getSeason['year_date'] }})</h2>
+          <h2 class="text-gray-200 text-base md:text-2xl font-normal">({{ $getSeason['year_date'] }})</h2>
         </div>
-        <a href="/tv/{{ $getTv['id'] . $getSeason['season_link'] }}" class="text-gray-300 hover:text-gray-400 duration-200 flex items-center gap-1 w-max text-xs md:text-base">
+        <a href="/tv/{{ $getTv['id'] . $getSeason['season_link'] }}" class="text-gray-200 hover:text-gray-400 duration-200 flex items-center gap-1 w-max text-xs md:text-base">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-3 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
@@ -30,7 +32,7 @@
   </div>
 
   <!-- episode -->
-  <div class="container px-3 md:px-8 mx-auto episode md:grid md:grid-cols-12 gap-6">
+  <div class="episode bg-gray-900 container px-3 md:px-8 mx-auto episode md:grid md:grid-cols-12 gap-6">
     <div class="md:col-span-6 lg:col-span-4 py-6">
       <img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="hover:opacity-80 duration-200 rounded-lg mx-auto"> 
     </div>  
@@ -106,27 +108,29 @@
   </div> 
 
   <!-- credit --> 
-  <div class="container px-3 md:px-8 mx-auto py-6">
+  <div class="credit bg-gray-900 container px-3 md:px-8 mx-auto py-6">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div class="cast">
-        <h2 class="text-xl font-medium mb-3">Main Character</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          @foreach ($getCast as $cast)
-            <div class="bg-white rounded-md overflow-hidden flex items-center gap-3">
-              <a href="/person/{{ $cast['slug'] }}">
-                <img src="{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="w-16 hover:opacity-80 duration-200">
-              </a>
-              <div>
+      @if ($getCast != '[]')
+        <div class="cast">
+          <h2 class="text-xl font-medium mb-3">Main Character</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            @foreach ($getCast as $cast)
+              <div class="bg-white rounded-md overflow-hidden flex items-center gap-3">
                 <a href="/person/{{ $cast['slug'] }}">
-                  <h5 class="font-medium text-black hover:text-gray-700 duration-200">{{ $cast['name'] }}</h5>
+                  <img src="{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="w-16 hover:opacity-80 duration-200">
                 </a>
-                <p class="text-gray-700 text-xs truncate">{{ $cast['character'] }}</p>
+                <div>
+                  <a href="/person/{{ $cast['slug'] }}">
+                    <h5 class="font-medium text-black hover:text-gray-700 duration-200">{{ $cast['name'] }}</h5>
+                  </a>
+                  <p class="text-gray-700 text-xs truncate">{{ $cast['character'] }}</p>
+                </div>
               </div>
-            </div>
-            
-          @endforeach
+              
+            @endforeach
+          </div>
         </div>
-      </div>
+      @endif
 
       @if ($getGuest != '[]')
         <div class="guest-star">

@@ -3,7 +3,7 @@
 @include('partials.navbar')
 
 @section('content')
-<div class="px-3 md:px-6 pt-12 container mx-auto divide-y divide-gray-700">
+<div class="px-3 md:px-6 pt-16 md:pt-12 container mx-auto divide-y divide-gray-700">
   <!-- person info -->
   <div class="grid md:grid-cols-12 md:gap-6">
     <div class="side-info md:col-span-4 md:py-6">
@@ -70,26 +70,30 @@
         <h2 class="hidden md:block font-semibold text-3xl tracking-wide">{{ $person['name'] }}</h2>
         <div class="mt-8">
           <h3 class="font-medium text-xl">Biography</h3>
-          <p class="mt-2 text-sm md:text-base whitespace-pre-wrap">{{ $person['biography'] }}</p>
+          <p class="mt-2 text-sm md:text-md whitespace-pre-wrap">{{ $person['biography'] }}</p>
         </div>
       </div>
 
       <div class="mb-6">
         <h2 class="font-medium text-xl mb-4">Known For</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          @foreach ($getMovies as $movie)
-            <div class="grid grid-cols-5 md:grid-cols-3 lg:grid-cols-5 items-center bg-white rounded-md overflow-hidden text-black">
-              <a href="{{ $movie['linkToPage'] }}" class="w-max col-span-1">
-                <img src="{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="hover:opacity-75 transition ease-in-out duration-150 w-16 h-full">
-              </a>
-              <div class="col-span-4 md:col-span-2 lg:col-span-4">
-                <a href="{{ $movie['linkToPage'] }}">
-                  <p class="truncate text-sm md:text-base font-medium hover:text-gray-800">{{ $movie['title'] }}</p>
+          @if ($getMovies != '[]')
+            @foreach ($getMovies as $movie)
+              <div class="grid grid-cols-5 md:grid-cols-3 lg:grid-cols-5 items-center bg-white rounded-md overflow-hidden text-black">
+                <a href="{{ $movie['linkToPage'] }}" class="w-max col-span-1">
+                  <img src="{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="hover:opacity-75 transition ease-in-out duration-150 w-16 h-full">
                 </a>
-                <p class="text-gray-800 text-xs">{{ $movie['character'] }}</p>
-              </div>
-            </div> 
-            @endforeach
+                <div class="col-span-4 md:col-span-2 lg:col-span-4">
+                  <a href="{{ $movie['linkToPage'] }}">
+                    <p class="truncate text-sm md:text-base font-medium hover:text-gray-800">{{ $movie['title'] }}</p>
+                  </a>
+                  <p class="text-gray-800 text-xs">{{ $movie['character'] }}</p>
+                </div>
+              </div> 
+              @endforeach
+            @else
+              <p class="mt-2 text-gray-300 text-sm md:text-base whitespace-pre-wrap">Sorry we don't have enough data for this person.</p>
+            @endif
         </div>
       </div>
     </div>

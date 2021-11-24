@@ -2,6 +2,8 @@
 
 namespace App\ViewModels;
 
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Spatie\ViewModels\ViewModel;
 
 class MoviesViewModel extends ViewModel
@@ -55,9 +57,11 @@ class MoviesViewModel extends ViewModel
         'poster_path' => $movie['poster_path']
           ? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path']
           : "https://via.placeholder.com/500x750?text=ERROR",
-        'release_date' => \Carbon\Carbon::parse($movie['release_date'])->format('M d, Y'),
+        'link' => $movie['id'] . '/' . Str::slug($movie['title']),
+        'release_date' => Carbon::parse($movie['release_date'])->format('M d, Y'),
+        'vote_average' => Str::limit($movie['vote_average'], 3, ''),
       ])->only([
-        'poster_path', 'id', 'title', 'vote_average', 'release_date'
+        'poster_path', 'id', 'title', 'vote_average', 'release_date', 'link'
       ]);
     });
   }

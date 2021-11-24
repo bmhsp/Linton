@@ -48,8 +48,11 @@ class SeasonViewModel extends ViewModel
   {
     return collect($this->tv)->merge([
       'slug' =>  $this->tv['id'] . '/' . Str::slug($this->tv['name']),
+      'backdrop_path' => $this->tv['backdrop_path']
+        ? 'https://image.tmdb.org/t/p/w500' . $this->tv['backdrop_path']
+        : 'https://via.placeholder.com/750x500?text=ERROR',
     ])->only([
-      'id', 'name', 'slug', 'original_name'
+      'id', 'name', 'slug', 'original_name', 'backdrop_path'
     ]);
   }
 }
