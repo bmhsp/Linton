@@ -2,7 +2,7 @@
   <div class="antialiased">
     <div class="w-full">
       <div x-data="{ open: false }" id="navbar" class="flex flex-col md:items-center md:justify-between md:flex-row container px-6 lg:px-8 mx-auto">
-        <div class="flex flex-row items-center justify-between py-2 md:py-4">
+        <div class="flex flex-row items-center justify-between py-4">
           <a href="/" class="text-lg bg-yellow-400 px-1 font-black tracking-widest uppercase text-white focus:outline-none">LIN.<span class="text-black">TON</span></a>
           <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -11,13 +11,13 @@
             </svg>
           </button>
         </div>
-        <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-between lg:justify-end md:flex-row">
+        <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end lg:justify-end md:flex-row md:gap-12">
           <div class="md:hidden">
             <livewire:search-dropdown>
           </div>
-          <a class="{{ (request()->is('movies*')) ? 'text-yellow-400' : '' }} px-2 md:px-0 lg:px-4 uppercase py-2 mt-2 text-xs font-semibold md:mt-0 md:ml-4 hover:text-yellow-400 duration-200 focus:outline-none" href="/movies">Movies</a>
-          <a class="{{ (request()->is('tv*')) ? 'text-yellow-400' : '' }} px-2 md:px-0 lg:px-4 uppercase py-2 mt-2 text-xs font-semibold md:mt-0 md:ml-4 hover:text-yellow-400 duration-200 focus:outline-none" href="/tv">TV Shows</a>
-          <a class="{{ (request()->is('person*')) ? 'text-yellow-400' : '' }} px-2 md:px-0 lg:px-4 uppercase py-2 mt-2 text-xs font-semibold md:mt-0 md:ml-4 hover:text-yellow-400 duration-200 focus:outline-none md:mr-2 lg:mr-0" href="/person">People</a>
+          <a class="{{ (request()->is('movies*')) ? 'text-yellow-400' : '' }} px-2 md:px-0 lg:px-4 uppercase py-2 mt-2 text-xs font-semibold md:mt-0 hover:text-yellow-400 duration-200 focus:outline-none" href="/movies">Movies</a>
+          <a class="{{ (request()->is('tv*')) ? 'text-yellow-400' : '' }} px-2 md:px-0 lg:px-4 uppercase py-2 mt-2 text-xs font-semibold md:mt-0 hover:text-yellow-400 duration-200 focus:outline-none" href="/tv">TV Shows</a>
+          <a class="{{ (request()->is('person*')) ? 'text-yellow-400' : '' }} px-2 md:px-0 lg:px-4 uppercase py-2 mt-2 text-xs font-semibold md:mt-0 hover:text-yellow-400 duration-200 focus:outline-none" href="/person">People</a>
           <div class="hidden md:block">
             <livewire:search-dropdown>
           </div>

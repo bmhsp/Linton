@@ -177,8 +177,8 @@
 
   <!-- movie image -->
   @if ($getImage != '[]')
-    <div class="tv-images bg-white w-full h-max" x-data="{ image: false , image:''}">
-      <div class="container px-3 lg:px-8 py-6 mx-auto">
+    <div class="tv-images w-full h-max" x-data="{ image: false , image:''}">
+      <div class="container px-3 lg:px-8 py-6 mx-auto bg-white">
         <h2 class="text-2xl font-semibold mb-3 text-black">Images</h2>
         <div class="flex overflow-x-scroll hide-scroll-bar rounded-md">
           <div class="flex flex-nowrap gap-4">
@@ -225,18 +225,16 @@
 
   <!-- movie collection -->
   @if ($getCollection)
-    <div class="collection relative w-full h-max overflow-hidden">
-      <div class="overflow-hidden">
-        <div class="absolute">
-          <img src="{{ $getCollection['backdrop_path'] }}" alt="{{ $getCollection['name'] }}" class="opacity-30 mx-auto relative w-screen">
-        </div>
-          
-        <div class="relative bg-gradient-to-r from-black to-transparant">
-          <div class="container px-6 lg:px-12 py-12 md:py-36">
-            <h3 class="text-xl md:text-3xl font-semibold">Part of the {{ $getCollection['name'] }}</h3>
-            <p class="text-sm md:text-base lg:text-lg text-gray-300 mb-6">{{ $movie['title'] }}</p>
-            <a href="/collection/{{ $getCollection['link'] }}" class="text-sm md:text-base px-6 py-3 bg-gray-800 hover:bg-gray-900 duration-200 ease-in rounded-full uppercase font-semibold">Collections</a>
-          </div>
+    <div class="collection relative w-full md:w-3/4 h-3/4 mx-auto overflow-hidden py-6">
+      <div class="mx-auto overflow-hidden">
+        <img src="{{ $getCollection['backdrop_path'] }}" alt="{{ $getCollection['name'] }}" class="opacity-30 absolute w-screen">
+      </div>
+        
+      <div class="relative container px-3 lg:px-8 mx-auto bg-gradient-to-r from-black to-transparant h-full">
+        <div class="container px-6 lg:px-12 py-16 md:py-32 lg:py-52">
+          <h3 class="text-xl md:text-3xl font-semibold">Part of the {{ $getCollection['name'] }}</h3>
+          <p class="text-sm md:text-base lg:text-lg text-gray-300 mb-6">{{ $movie['title'] }}</p>
+          <a href="/collection/{{ $getCollection['link'] }}" class="text-sm md:text-base px-6 py-3 bg-gray-800 hover:bg-gray-900 duration-200 ease-in rounded-full uppercase font-semibold">Collections</a>
         </div>
       </div>
     </div>
