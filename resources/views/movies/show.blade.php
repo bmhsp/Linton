@@ -225,16 +225,14 @@
 
   <!-- movie collection -->
   @if ($getCollection)
-    <div class="collection relative w-full md:w-3/4 h-3/4 mx-auto overflow-hidden py-6">
-      <div class="mx-auto overflow-hidden">
-        <img src="{{ $getCollection['backdrop_path'] }}" alt="{{ $getCollection['name'] }}" class="opacity-30 absolute w-screen">
-      </div>
-        
-      <div class="relative container px-3 lg:px-8 mx-auto bg-gradient-to-r from-black to-transparant h-full">
-        <div class="container px-6 lg:px-12 py-16 md:py-32 lg:py-52">
-          <h3 class="text-xl md:text-3xl font-semibold">Part of the {{ $getCollection['name'] }}</h3>
-          <p class="text-sm md:text-base lg:text-lg text-gray-300 mb-6">{{ $movie['title'] }}</p>
-          <a href="/collection/{{ $getCollection['link'] }}" class="text-sm md:text-base px-6 py-3 bg-gray-800 hover:bg-gray-900 duration-200 ease-in rounded-full uppercase font-semibold">Collections</a>
+    <div class="collection container px-3 lg:px-8 py-6 mx-auto bg-cover">
+      <div class="bg-cover" style="background-image: url({{ $getCollection['backdrop_path'] }});">
+        <div class="w-full bg-gradient-to-r from-black to-transparent">
+          <div class="container pl-6 lg:pl-12 py-6 md:py-32 lg:py-36">
+            <h3 class="text-lg md:text-3xl font-semibold">Part of the {{ $getCollection['name'] }}</h3>
+            <p class="text-sm md:text-base lg:text-lg text-gray-300 mb-6">{{ $movie['title'] }}</p>
+            <a href="/collection/{{ $getCollection['link'] }}" class="text-sm md:text-base px-6 py-3 bg-gray-800 hover:bg-gray-900 duration-200 ease-in rounded-full uppercase font-semibold">Collections</a>
+          </div>
         </div>
       </div>
     </div>
