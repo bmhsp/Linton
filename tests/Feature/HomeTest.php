@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class HomeTest extends TestCase
 {
   /** @test */
-  public function home()
+  public function home_index()
   {
     Http::fake([
       'https://api.themoviedb.org/3/trending/movie/day' => $this->fakeMovies(),
