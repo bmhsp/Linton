@@ -100,7 +100,7 @@ class TvShowViewModel extends ViewModel
   {
     $networks = collect($this->tvshow['networks']);
 
-    return collect($networks)->take(2)->map(function ($network) {
+    return collect($networks)->map(function ($network) {
       return collect($network)->merge([
         'logo_path' => $network['logo_path']
           ? 'https://image.tmdb.org/t/p/w300' . $network['logo_path']

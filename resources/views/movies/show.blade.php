@@ -116,30 +116,33 @@
   <!-- movie info -->
   <div class="movie-info grid grid-cols-1 lg:grid-cols-4 container px-3 lg:px-8 py-6 mx-auto gap-6">
     <!-- cast -->
-    <div class="lg:col-span-3 flex flex-col h-max">
-      <h2 class="text-2xl font-semibold mb-3">Cast</h2>
-      <div class="flex overflow-x-scroll hide-scroll-bar">
-        <div class="flex flex-nowrap gap-4">
-          @foreach ($getCast as $cast)
-          <div class="inline-block">
-            <div class="w-28 md:w-36 lg:w-40 max-w-xs h-max overflow-hidden bg-white rounded-lg">
-              <a href="/person/{{ $cast['link'] }}">
-                <img src="{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="hover:opacity-75 transition:ease-in duration-200">
-              </a>
-              <div class="mt-2 px-3 pb-2 text-black">
-                <a href="/person/{{ $cast['id'] }}">
-                  <p class="text-sm truncate font-semibold hover:text-gray-300">{{ $cast['name'] }}</p>
+    @if ($getCast != '[]')
+      <div class="lg:col-span-3 flex flex-col h-max">
+        <h2 class="text-2xl font-semibold mb-3">Cast</h2>
+        <div class="flex overflow-x-scroll hide-scroll-bar">
+          <div class="flex flex-nowrap gap-4">
+            @foreach ($getCast as $cast)
+            <div class="inline-block">
+              <div class="w-28 md:w-36 lg:w-40 max-w-xs h-max overflow-hidden bg-white rounded-lg">
+                <a href="/person/{{ $cast['link'] }}">
+                  <img src="{{ $cast['profile_path'] }}" alt="{{ $cast['name'] }}" class="hover:opacity-75 transition:ease-in duration-200">
                 </a>
-                <div class="text-gray-600 text-xs md:text-sm">
-                  <p class="truncate">{{ $cast['character'] }}</p>
+                <div class="mt-2 px-3 pb-2 text-black">
+                  <a href="/person/{{ $cast['id'] }}">
+                    <p class="text-sm truncate font-semibold hover:text-gray-300">{{ $cast['name'] }}</p>
+                  </a>
+                  <div class="text-gray-600 text-xs md:text-sm">
+                    <p class="truncate">{{ $cast['character'] }}</p>
+                  </div>
                 </div>
               </div>
             </div>
+            @endforeach
           </div>
-          @endforeach
         </div>
-      </div>
-    </div> <!-- end cast -->
+      </div> 
+    @endif
+    <!-- end cast -->
 
     <!-- info -->
     <div class="lg:col-span-1 w-full">

@@ -157,7 +157,7 @@
       
       <div class="lg:col-span-1 w-full">
         <h2 class="text-xl md:text-2xl font-semibold mb-3">Info</h2>
-        <div class="bg-gray-300 bg-opacity-20 p-3 rounded-md border border-gray-800 shadow-lg">
+        <div class="p-3 rounded-md border border-gray-800 shadow-lg">
           <div class="mb-3">
             <h3 class="font-medium mb-1">Original Name</h3>
             <p class="text-gray-300">{{ $tvshow['original_name'] }}</p>
@@ -173,10 +173,10 @@
           @if ($getNetwork != '[]')
             <div class="mb-3">
               <h3 class="font-medium mb-2">Networks</h3>
-              <div class="flex flex-wrap gap-6 w-full items-center">
+              <div class="flex flex-wrap gap-3 w-full items-center">
                 @foreach ($getNetwork as $network)
-                  <a href="/network/{{ $network['link'] }}" class="w-2/5 my-auto">
-                    <img src="{{ $network['logo_path'] }}" alt="{{ $network['name'] }}" class="w-2/5 lg:w-full h-full">
+                  <a href="/network/{{ $network['link'] }}" class="bg-red-600 hover:bg-red-700 duration-200 ease-in rounded-md px-2 py-1 text-sm font-medium">
+                    {{ $network['name'] }}
                   </a>
                 @endforeach
               </div>
@@ -221,8 +221,8 @@
 
   <!-- tv image -->
   @if ($getImage != '[]')
-    <div class="tv-images relative bg-white" x-data="{ image: false , image:''}">
-      <div class="container mx-auto px-3 md:px-8 py-6">
+    <div class="tv-images relative" x-data="{ image: false , image:''}">
+      <div class="container mx-auto px-3 md:px-8 py-6 bg-white">
         <h2 class="text-xl md:text-2xl font-semibold mb-3 text-black">Images</h2>
         <div class="flex overflow-x-scroll hide-scroll-bar rounded-md">
           <div class="flex flex-nowrap gap-4">

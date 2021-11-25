@@ -5,7 +5,7 @@
 @section('content')
   <div class="container mx-auto px-3 md:px-8 pt-14">
     <div class="popular-person pt-6 mb-3">
-      <h1 class="uppercase tracking-wider text-gray-300 text-2xl font-semibold mb-6">Popular People</h1>
+      <h1 class="uppercase tracking-wider text-yellow-400 text-2xl font-semibold mb-6">Popular People</h1>
       <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">       
         @foreach ($popularPersons as $person)
           <div class="person bg-white rounded-lg overflow-hidden text-black shadow-lg">

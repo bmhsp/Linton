@@ -6,8 +6,8 @@
 
 <img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="w-full fixed">
 
-<div class="w-full py-6 relative">
-  <div class="mt-8 px-6 md:px-10 bg-gradient-to-r from-gray-900 to-transparent">
+<div class="w-full py-16 z-10 relative">
+  <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent bg-opacity-50">
     <div class="flex items-center gap-3 py-3">
       <a href="/tv/{{ $getTv['id'] . $getSeason['season_link'] }}">
         <img src="{{ $getSeason['poster_path'] }}" alt="{{ $getSeason['name'] }}" class="w-16 rounded-md hover:opacity-75 duration-200">
@@ -63,49 +63,51 @@
   </div>
 
   <!-- images -->
-  <div class="images relative bg-white" x-data="{ image: false , image:''}">
-    <div class="container mx-auto px-3 md:px-8 py-6">
-      <h2 class="text-xl font-semibold mb-3 text-black">Screenshoot</h2>
-      <div class="flex overflow-x-scroll hide-scroll-bar rounded-md">
-        <div class="flex flex-nowrap gap-4">
-          @foreach ($getImage as $image)
-            <div class="inline-block max-w-xs w-max">
-              <button
-              @click.prevent="
-                image = true
-                image = '{{ $image['file_path'] }}'
-              "
-              >
-                <img src="{{ $image['file_path'] }}" alt="{{ $getSeason['name'] }}" class="hover:opacity-75 transition:ease-in duration-200 cursor-pointer">   
+  @if ($getImage != '[]')
+    <div class="images relative" x-data="{ image: false , image:''}">
+      <div class="container mx-auto px-3 md:px-8 py-6 bg-white">
+        <h2 class="text-xl font-semibold mb-3 text-black">Screenshoot</h2>
+        <div class="flex overflow-x-scroll hide-scroll-bar rounded-md">
+          <div class="flex flex-nowrap gap-4">
+            @foreach ($getImage as $image)
+              <div class="inline-block max-w-xs w-max">
+                <button
+                @click.prevent="
+                  image = true
+                  image = '{{ $image['file_path'] }}'
+                "
+                >
+                  <img src="{{ $image['file_path'] }}" alt="{{ $getSeason['name'] }}" class="hover:opacity-75 transition:ease-in duration-200 cursor-pointer">   
+                </button>
+              </div>
+            @endforeach
+          </div>
+        </div>
+
+        <!-- image modal -->
+        <div 
+        class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto z-50" 
+        style="background-color: rgba(0, 0, 0, 0.5)"
+        x-show.transition.opacity="image"
+        >
+          <div class="mx-auto max-w-5xl bg-red-500 px-2 pb-2 rounded-md" @click.away="image = false">
+            <div class="flex justify-between px-3 pb-1">
+              <h2 class="text-xl font-medium tracking-wide self-end">{{ $episode['name'] }}</h2>
+              <button 
+                @click="image = false"
+                @keydown.escape.window= "image = false"
+                class="text-4xl leading-none hover:text-gray-300">&times;
               </button>
             </div>
-          @endforeach
-        </div>
+
+            <div class="relative overflow-hidden px-40 md:px-64 lg:px-96" style="padding-top: 56.25%;">
+              <img :src="image" alt="{{ $episode['name'] }}" class="absolute top-0 left-0 w-full h-full">
+            </div>
+          </div>
+        </div> <!-- end image modal-->
       </div>
-
-      <!-- image modal -->
-      <div 
-      class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto z-50" 
-      style="background-color: rgba(0, 0, 0, 0.5)"
-      x-show.transition.opacity="image"
-      >
-        <div class="mx-auto max-w-5xl bg-red-500 px-2 pb-2 rounded-md" @click.away="image = false">
-          <div class="flex justify-between px-3 pb-1">
-            <h2 class="text-xl font-medium tracking-wide self-end">{{ $episode['name'] }}</h2>
-            <button 
-              @click="image = false"
-              @keydown.escape.window= "image = false"
-              class="text-4xl leading-none hover:text-gray-300">&times;
-            </button>
-          </div>
-
-          <div class="relative overflow-hidden px-40 md:px-64 lg:px-96" style="padding-top: 56.25%;">
-            <img :src="image" alt="{{ $episode['name'] }}" class="absolute top-0 left-0 w-full h-full">
-          </div>
-        </div>
-      </div> <!-- end image modal-->
     </div>
-  </div> 
+  @endif
 
   <!-- credit --> 
   <div class="credit bg-gray-900 container px-3 md:px-8 mx-auto py-6">

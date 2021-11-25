@@ -4,10 +4,10 @@
 
 @include('partials.navbar')
 
-<img src="{{ $getTv['backdrop_path'] }}" alt="{{ $getTv['name'] }}" class="w-full fixed">
+<img src="{{ $getTv['backdrop_path'] }}" alt="{{ $getTv['name'] }}" class="w-full max-h-screen fixed">
 
-<div class="w-full py-6 relative">
-  <div class="mt-8 px-6 md:px-10 bg-gradient-to-r from-gray-900 to-transparent">
+<div class="w-full py-16 z-10 relative">
+  <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent bg-opacity-50">
     <div class="flex items-center gap-3 py-3">
       <a href="/tv/{{ $getTv['slug'] }}">
         <img src="{{ $getTv['tv_poster'] }}" alt="{{ $getTv['name'] }}" class="w-16 rounded-md hover:opacity-75 duration-200">
