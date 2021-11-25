@@ -269,16 +269,16 @@
   <!-- end tv image-->
 
   <!-- recomend tv -->
-  @if ($recomendTv != '[]')
+  @if ($recommendTv != '[]')
     <div class="relative container mx-auto p-8">
       <div class="recomend-tv flex flex-col h-max">
-        <h2 class="text-2xl font-semibold">Recomended</h2>
+        <h2 class="text-2xl font-semibold">Recommended</h2>
           <div class="flex overflow-x-scroll hide-scroll-bar">
             <div class="flex flex-nowrap gap-4">
-              @foreach ($recomendTv as $recomended)
+              @foreach ($recommendTv as $tvshow)
                 <div class="inline-block">
                   <div class="w-36 md:w-48 max-w-xs h-max overflow-hidden">
-                    <x-tv-card :tvshow="$recomended" />
+                    <x-tv-card :tvshow="$tvshow" />
                   </div>
                 </div>
               @endforeach

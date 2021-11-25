@@ -26,6 +26,8 @@ class HomeTest extends TestCase
     $response->assertSee('trending people');
   }
 
+
+
   private function fakeMovies()
   {
     return Http::response([

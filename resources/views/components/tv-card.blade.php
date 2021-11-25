@@ -14,6 +14,5 @@
       <span class="mx-2">|</span>
       <span>{{ ($tvshow['first_air_date']) }}</span>
     </div>
-    {{-- <div class="text-gray-400 text-xs md:text-sm">{{ $tvshow['genres'] }}</div> --}}
   </div> 
 </div>

@@ -9,13 +9,13 @@ use Spatie\ViewModels\ViewModel;
 class MovieViewModel extends ViewModel
 {
 	public $movie;
-	public $recomendMovie;
+	public $recommendMovie;
 	public $keywords;
 
-	public function __construct($movie, $recomendMovie, $keywords)
+	public function __construct($movie, $recommendMovie, $keywords)
 	{
 		$this->movie = $movie;
-		$this->recomendMovie = $recomendMovie;
+		$this->recommendMovie = $recommendMovie;
 		$this->keywords = $keywords;
 	}
 
@@ -117,9 +117,9 @@ class MovieViewModel extends ViewModel
 		}
 	}
 
-	public function recomendMovie()
+	public function recommendMovie()
 	{
-		return collect($this->recomendMovie)->map(function ($movie) {
+		return collect($this->recommendMovie)->map(function ($movie) {
 			return collect($movie)->merge([
 				'poster_path' => $movie['poster_path']
 					? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path']

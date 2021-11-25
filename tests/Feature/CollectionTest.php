@@ -23,6 +23,8 @@ class CollectionTest extends TestCase
 		$response->assertSee('Venom');
 	}
 
+
+
 	private function fakeCollection()
 	{
 		return Http::response([

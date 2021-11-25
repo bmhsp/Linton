@@ -9,13 +9,13 @@ use Spatie\ViewModels\ViewModel;
 class TvShowViewModel extends ViewModel
 {
   public $tvshow;
-  public $recomendTv;
+  public $recommendTv;
   public $keywords;
 
-  public function __construct($tvshow, $recomendTv, $keywords)
+  public function __construct($tvshow, $recommendTv, $keywords)
   {
     $this->tvshow = $tvshow;
-    $this->recomendTv = $recomendTv;
+    $this->recommendTv = $recommendTv;
     $this->keywords = $keywords;
   }
 
@@ -123,9 +123,9 @@ class TvShowViewModel extends ViewModel
     });
   }
 
-  public function recomendTv()
+  public function recommendTv()
   {
-    return collect($this->recomendTv)->map(function ($tvshow) {
+    return collect($this->recommendTv)->map(function ($tvshow) {
       return collect($tvshow)->merge([
         'poster_path' => $tvshow['poster_path']
           ? 'https://image.tmdb.org/t/p/w500/' . $tvshow['poster_path']

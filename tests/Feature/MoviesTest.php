@@ -17,7 +17,6 @@ class MoviesTest extends TestCase
       'https://api.themoviedb.org/3/movie/popular' => $this->fakePopular(),
       'https://api.themoviedb.org/3/movie/top_rated' => $this->fakeTopRated(),
       'https://api.themoviedb.org/3/movie/upcoming' => $this->fakeUpcoming(),
-      'https://api.themoviedb.org/3/genre/movie/list' => $this->fakeGenres()
     ]);
 
     $response = $this->get('/movies');
@@ -38,14 +37,17 @@ class MoviesTest extends TestCase
       'https://api.themoviedb.org/3/movie/*/keywords' => $this->fakeKeywords(),
     ]);
 
-    $response = $this->get('/movies/566525/shang-chi-and-the-legend-of-the-ten-rings0');
+    $response = $this->get('/movies/566525/shang-chi-and-the-legend-of-the-ten-rings');
 
+    // $response->assertSuccessful();
     $response->assertSee('Shang-Chi and the Legend of the Ten Rings');
     $response->assertSee('Cast');
     $response->assertSee('Info');
     $response->assertSee('Images');
-    $response->assertSee('Recomended');
+    $response->assertSee('Recommended');
   }
+
+
 
   private function fakeNowPlaying()
   {
@@ -106,90 +108,6 @@ class MoviesTest extends TestCase
           "release_date" => "2021-09-30",
           "title" => "Venom: Let There Be Carnage",
           "vote_average" => 7.2,
-        ]
-      ]
-    ], 200);
-  }
-
-  private function fakeGenres()
-  {
-    return Http::response([
-      "genres" => [
-        [
-          "id" => 28,
-          "name" => "Action"
-        ],
-        [
-          "id" => 12,
-          "name" => "Adventure"
-        ],
-        [
-          "id" => 16,
-          "name" => "Animation"
-        ],
-        [
-          "id" => 35,
-          "name" => "Comedy"
-        ],
-        [
-          "id" => 80,
-          "name" => "Crime"
-        ],
-        [
-          "id" => 99,
-          "name" => "Documentary"
-        ],
-        [
-          "id" => 18,
-          "name" => "Drama"
-        ],
-        [
-          "id" => 10751,
-          "name" => "Family"
-        ],
-        [
-          "id" => 14,
-          "name" => "Fantasy"
-        ],
-        [
-          "id" => 36,
-          "name" => "History"
-        ],
-        [
-          "id" => 27,
-          "name" => "Horror"
-        ],
-        [
-          "id" => 10402,
-          "name" => "Music"
-        ],
-        [
-          "id" => 9648,
-          "name" => "Mystery"
-        ],
-        [
-          "id" => 10749,
-          "name" => "Romance"
-        ],
-        [
-          "id" => 878,
-          "name" => "Science Fiction"
-        ],
-        [
-          "id" => 10770,
-          "name" => "TV Movie"
-        ],
-        [
-          "id" => 53,
-          "name" => "Thriller"
-        ],
-        [
-          "id" => 10752,
-          "name" => "War"
-        ],
-        [
-          "id" => 37,
-          "name" => "Western"
         ]
       ]
     ], 200);

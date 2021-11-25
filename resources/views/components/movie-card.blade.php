@@ -14,6 +14,5 @@
       <span class="mx-2">|</span>
       <span>{{ ($movie['release_date']) }}</span>
     </div>
-    {{-- <div class="text-gray-300 text-xs md:text-sm">{{ $movie['genres'] }}</div> --}}
   </div>
 </div>      
