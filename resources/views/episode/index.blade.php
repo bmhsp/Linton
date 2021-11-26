@@ -67,7 +67,7 @@
     <div class="images relative" x-data="{ image: false , image:''}">
       <div class="container mx-auto px-3 md:px-8 py-6 bg-white">
         <h2 class="text-xl font-semibold mb-3 text-black">Screenshoot</h2>
-        <div class="flex overflow-x-scroll hide-scroll-bar rounded-md">
+        <div class="flex overflow-x-scroll rounded-md pb-4">
           <div class="flex flex-nowrap gap-4">
             @foreach ($getImage as $image)
               <div class="inline-block max-w-xs w-max">

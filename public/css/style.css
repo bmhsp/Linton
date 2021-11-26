@@ -1,10 +1,19 @@
-.hide-scroll-bar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
 }
-.hide-scroll-bar::-webkit-scrollbar {
-    display: none;
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
 }
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .tab {
     overflow: hidden;
 }
@@ -12,6 +21,7 @@
     max-height: 0;
     transition: all 0.5s;
 }
+
 input:checked + .tab-label .test {
     background-color: #fff;
 }

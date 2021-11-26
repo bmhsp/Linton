@@ -3,8 +3,9 @@
     <div class="w-full">
       <div x-data="{ open: false }" id="navbar" class="flex flex-col md:items-center md:justify-between md:flex-row container px-6 lg:px-8 mx-auto">
         <div class="flex flex-row items-center justify-between py-4">
-          <a href="/" class="text-lg bg-yellow-400 hover:bg-yellow-500 duration-200 ease-in px-2 font-black tracking-widest uppercase text-white focus:outline-none">
-            <img src="/img/logo.png" alt="">
+          <a href="/" class="flex items-center focus:outline-none bg-yellow-400 hover:bg-yellow-500 duration-200 ease-in px-2">
+            <img src="/img/logo.png" alt="linton" class="w-8">
+            <h2 class="text-lg font-black tracking-widest uppercase text-white">LIN.<span class="text-gray-900">TON</span></h2>
           </a>
           <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">

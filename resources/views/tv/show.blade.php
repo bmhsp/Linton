@@ -193,8 +193,8 @@
     <div class="tv-cast container px-3 md:px-8 py-6 mx-auto">
       <div class="flex flex-col mb-6 h-max">
         <h2 class="text-xl md:text-2xl font-semibold mb-3">Cast</h2>
-        <div class="flex overflow-x-scroll hide-scroll-bar">
-          <div class="flex flex-nowrap gap-4">
+        <div class="flex overflow-x-scroll pb-4">
+          <div class="flex flex-nowrap gap-3">
             @foreach ($getCast as $cast)
             <div class="inline-block">
               <div class="w-28 md:w-36 lg:w-40 max-w-xs h-max overflow-hidden bg-white rounded-lg">
@@ -216,6 +216,7 @@
         </div>
       </div>
     </div>
+
   @endif
   <!-- end cast-->
 
@@ -224,7 +225,7 @@
     <div class="tv-images relative" x-data="{ image: false , image:''}">
       <div class="container mx-auto px-3 md:px-8 py-6 bg-white">
         <h2 class="text-xl md:text-2xl font-semibold mb-3 text-black">Images</h2>
-        <div class="flex overflow-x-scroll hide-scroll-bar rounded-md">
+        <div class="flex overflow-x-scroll rounded-md pb-4">
           <div class="flex flex-nowrap gap-4">
             @foreach ($getImage as $image)
               <div class="inline-block max-w-xs w-max">
@@ -272,8 +273,8 @@
   @if ($recommendTv != '[]')
     <div class="relative container mx-auto p-8">
       <div class="recomend-tv flex flex-col h-max">
-        <h2 class="text-2xl font-semibold">Recommended</h2>
-          <div class="flex overflow-x-scroll hide-scroll-bar">
+        <h2 class="text-2xl font-semibold mb-3">Recommended</h2>
+          <div class="flex overflow-x-scroll pb-4">
             <div class="flex flex-nowrap gap-4">
               @foreach ($recommendTv as $tvshow)
                 <div class="inline-block">
