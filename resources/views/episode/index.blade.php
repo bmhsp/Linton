@@ -32,13 +32,13 @@
   </div>
 
   <!-- episode -->
-  <div class="episode bg-gray-900 container px-3 md:px-8 mx-auto episode md:grid md:grid-cols-12 gap-6">
-    <div class="md:col-span-6 lg:col-span-4 py-6">
+  <div class="episode bg-gray-900 container px-3 md:px-8 mx-auto episode lg:grid lg:grid-cols-12 gap-6">
+    <div class="lg:col-span-4 py-6">
       <img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="hover:opacity-80 duration-200 rounded-lg mx-auto"> 
     </div>  
 
-    <div class="md:col-span-6 lg:col-span-8 flex flex-col justify-center pb-6 md:py-8">
-      <div class="flex gap-3">
+    <div class="lg:col-span-8 flex flex-col justify-center pb-6 lg:py-8">
+      <div class="flex gap-3 justify-between">
         <p class="text-md bg-white text-gray-900 px-2 rounded-full h-max font-semibold">{{ $episode['episode_number'] }}</p>
         <div class="flex flex-col lg:flex-row lg:justify-between w-full">
           <div class="flex items-center gap-4 mb-1">

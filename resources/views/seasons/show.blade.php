@@ -63,7 +63,7 @@
             </div>
 
             <div class="mt-3">
-              <p class="pr-8 text-sm">{{ $episode['overview'] }}</p>
+              <p class="pr-8 text-sm hidden lg:block">{{ $episode['overview'] }}</p>
             </div>
           </div>
         </div>

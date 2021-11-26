@@ -21,6 +21,29 @@
       
     @yield('scripts')
 
+    <!-- footer -->
+    <section class="relative w-full bg-yellow-400 py-6 z-50">
+      <div class="container px-3 md:px-8 mx-auto">
+        <div class="flex justify-center items-center gap-12">
+          <div class="w-max">
+            <a href="/" class="text-4xl bg-black hover:bg-white hover:text-black duration-200 ease-in px-2 font-black tracking-wider uppercase focus:outline-none">LIN.<span class="text-yellow-400">TON</span></a>
+            <p class="mt-2 text-black uppercase text-sm font-semibold lg:text-center tracking-wider">aplikasi nonton</p>
+          </div>
+
+          <a href="/" class="hover:opacity-75 duration-200 ease-in">
+            <img src="/img/logo.png" alt="linton" class="w-36">
+          </a>
+
+          <div class="text-black flex items-center gap-6">
+            <a href="" class="underline">Github</a>
+            <a href="" class="underline">Instagram</a>
+            <a href="" class="underline">Linkedin</a>
+          </div>
+        </div>
+      </div>
+    </section>  <!-- end footer -->
+   
+
     <!-- fill navbar on scroll -->
     <script>
       window.onscroll = function() {

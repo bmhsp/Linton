@@ -55,6 +55,12 @@
             <h3 class="font-medium">Place of Birth</h3>
             <p class="text-gray-300">{{ $person['place_of_birth'] }}</p>
           </div>
+          @if ($person['deathday'])
+            <div class="mt-3">
+              <h3 class="font-medium">Day of death</h3>
+              <p class="text-gray-300">{{ $person['deathday'] }}</p>
+            </div>
+          @endif
           <div class="hidden md:block mt-3">
             <h3 class="font-medium">Also knows as</h3>
             @foreach($person['also_known_as'] as $known_as)
