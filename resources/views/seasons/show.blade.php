@@ -70,7 +70,7 @@
       @endforeach
     </div>
   @else
-    <div class="container px-3 md:px-8 mx-auto divide-y divide-gray-500">
+    <div class="container bg-gray-900 px-3 md:px-8 mx-auto divide-y divide-gray-500">
       <div class="md:grid md:grid-cols-12 gap-6">
         <div class="md:col-span-6 lg:col-span-4 py-6">
           <img src="https://via.placeholder.com/750x500?text=COMING+SOON" class="hover:opacity-80 duration-200 rounded-lg">

@@ -32,7 +32,7 @@
   </div>
 
   <!-- episode -->
-  <div class="episode bg-gray-900 container px-3 md:px-8 mx-auto episode lg:grid lg:grid-cols-12 gap-6">
+  <div class="episode bg-gray-900 container mx-auto px-3 md:px-8 lg:grid lg:grid-cols-12 gap-6">
     <div class="lg:col-span-4 py-6">
       <img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="hover:opacity-80 duration-200 rounded-lg mx-auto"> 
     </div>  

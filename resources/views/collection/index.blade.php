@@ -4,7 +4,7 @@
 
 @include('partials.navbar')
 
-<div class="lg:h-screen overflow-hidden absolute">
+<div class="lg:h-screen overflow-hidden fixed">
   <img src="{{ $collection['backdrop_path'] }}" alt="{{ $collection['name'] }}" class="w-screen opacity-30 relative">
 </div>
 
@@ -24,9 +24,10 @@
         </p>
       </div>   
       
+      <!-- movie list -->
       <div class="movie-list mt-8">
         <h2 class="text-lg font-semibold mb-2">Movie List</h2>
-        <div class="flex overflow-x-scroll hide-scroll-bar">
+        <div class="flex overflow-x-scroll pb-4">
           <div class="flex flex-nowrap gap-6">
             @foreach ($getMovie as $movie)
               <div class="inline-block">
