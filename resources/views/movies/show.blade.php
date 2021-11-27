@@ -4,9 +4,9 @@
 
 @include('partials.navbar')
 
-<div class="lg:h-screen overflow-hidden absolute">
-  <img src="{{ $movie['backdrop_path'] }}" alt="{{ $movie['title'] }}" class="w-screen opacity-30 relative">
-</div>
+  <div class="lg:h-screen overflow-hidden absolute">
+    <img src="{{ $movie['backdrop_path'] }}" alt="{{ $movie['title'] }}" class="w-screen opacity-30 relative">
+  </div>
 
   <!-- movie main -->
   <div class="movie-main relative lg:bg-gradient-to-r from-gray-900 to-transparant lg:h-screen lg:flex items-center lg:pt-16 border-b border-gray-500 lg:border-none">

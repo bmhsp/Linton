@@ -59,7 +59,7 @@ class TvShowViewModel extends ViewModel
       return collect($video)->merge([
         'thumbnail' => 'http://i3.ytimg.com/vi/' . $video['key'] . '/hqdefault.jpg'
       ])->only([
-        'id', 'key', 'name', 'thumbnail'
+        'id', 'key', 'name', 'thumbnail', 'type'
       ]);
     });
   }

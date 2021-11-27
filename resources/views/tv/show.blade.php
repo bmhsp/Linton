@@ -33,39 +33,39 @@
 
           <!-- trailer modal -->
           <section  
-            class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto z-50" 
-            style="background-color: rgba(0, 0, 0, 0.5)"
-            x-show.transition.opacity="trailer"
+          class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto z-50" 
+          style="background-color: rgba(0, 0, 0, 0.5)"
+          x-show.transition.opacity="trailer"
           >
-            <div class="mx-auto max-w-5xl bg-red-500 px-2 pb-2 rounded-md" @click.away="trailer = false" @keydown.escape.window="trailer = false">
-              <div class="flex justify-between px-3 pb-1">
-                <h2 class="text-lg md:text-xl font-medium tracking-wide self-end">{{ $tvshow['name'] }}</h2>
-                <button @click="trailer = false" class="text-2xl md:text-4xl leading-none">&times;</button>
-              </div>
-
-              <div class="relative overflow-hidden px-40 md:px-64 lg:px-96" style="padding-top: 56.25%;">
-                <!-- large image on slides -->
-                @foreach ($getVideo as $video)
-                  <div class="mySlides hidden">
-                    <div class="w-full object-cover">
-                      <iframe width="560" height="315" class="absolute top-0 left-0 w-full h-full" src="https://youtube.com/embed/{{ $video['key'] }}" style="border: 0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                  </div>
-                @endforeach
-          
-                <!-- buttons -->
-                <a class="absolute left-0 md:inset-y-3/4 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(-1)">❮</a>
-                <a class="absolute right-0 md:inset-y-3/4 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(1)">❯</a>
-              </div>
-
-              <!-- smaller images under description -->
-              <div class="w-full object-cover flex justify-center gap-3 md:gap-1 border border-red-500">
-                @foreach ($getVideo as $video)
-                  <img class="description h-12 md:h-24 opacity-50 hover:opacity-100 cursor-pointer" src="{{ $video['thumbnail'] }}" onclick="currentSlide({{ $loop->iteration }})" alt="{{ $video['name'] }}">
-                @endforeach
-              </div>
+          <div class="mx-auto max-w-5xl bg-red-500 px-2 pb-2 rounded-md" @click.away="trailer = false" @keydown.escape.window="trailer = false">
+            <div class="flex justify-between px-3 pb-1">
+              <h2 class="text-lg md:text-xl font-medium tracking-wide self-end">{{ $tvshow['name'] }}</h2>
+              <button @click="trailer = false" class="text-2xl md:text-4xl leading-none">&times;</button>
             </div>
-          </section> <!-- end modal --> 
+
+            <div class="relative overflow-hidden px-40 md:px-64 lg:px-96" style="padding-top: 56.25%;">
+              <!-- large image on slides -->
+              @foreach ($getVideo as $video)
+                <div class="mySlides hidden">
+                  <div class="w-full object-cover">
+                    <iframe width="560" height="315" class="absolute top-0 left-0 w-full h-full" src="https://youtube.com/embed/{{ $video['key'] }}" style="border: 0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  </div>
+                </div>
+              @endforeach
+        
+              <!-- buttons -->
+              <a class="absolute left-0 md:inset-y-3/4 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(-1)">❮</a>
+              <a class="absolute right-0 md:inset-y-3/4 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(1)">❯</a>
+            </div>
+
+            <!-- smaller images under description -->
+            <div class="w-full object-cover flex justify-center gap-3 md:gap-1 border border-red-500">
+              @foreach ($getVideo as $video)
+                <img class="description h-12 md:h-24 opacity-50 hover:opacity-100 cursor-pointer" src="{{ $video['thumbnail'] }}" onclick="currentSlide({{ $loop->iteration }})" alt="{{ $video['name'] }}">
+              @endforeach
+            </div>
+          </div>
+        </section> <!-- end modal --> 
         </div>
       </div>
 
@@ -290,4 +290,40 @@
   @endif
   <!-- end recomend tv -->
 
+@endsection
+
+@section('scripts')
+  <script>
+    // trailer modal
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("description");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" opacity-100", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " opacity-100";
+    }
+  </script>
 @endsection
