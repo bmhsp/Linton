@@ -1,5 +1,5 @@
   <!-- footer -->
-  <section class="relative w-full bg-yellow-400 py-6 z-50">
+  <section class="relative bottom-0 w-full bg-yellow-400 py-6 z-40">
     <div class="container px-3 md:px-8 mx-auto">
       <div class="flex flex-col md:flex-row md:justify-center items-center md:gap-12">
         <div class="w-max">

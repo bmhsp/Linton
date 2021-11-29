@@ -14,7 +14,7 @@
   @livewireStyles
 </head>
 
-  <body class="bg-gray-900 text-white font-sans">
+  <body class="bg-gray-900 text-white font-sans h-full">
     
     @yield('content')
 

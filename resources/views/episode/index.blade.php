@@ -6,7 +6,7 @@
 
 <img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="w-full fixed">
 
-<div class="w-full py-16 z-10 relative">
+<div class="w-full pt-16 z-10 relative">
   <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent bg-opacity-50">
     <div class="flex items-center gap-3 py-3">
       <a href="/tv/{{ $getTv['id'] . $getSeason['season_link'] }}">
