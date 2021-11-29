@@ -1,6 +1,6 @@
   <!-- footer -->
-  <section class="relative bottom-0 w-full bg-yellow-400 py-6 z-40">
-    <div class="container px-3 md:px-8 mx-auto">
+  <section class="relative bottom-0 w-full bg-yellow-400 z-30">
+    <div class="container px-3 md:px-8 py-6 mx-auto">
       <div class="flex flex-col md:flex-row md:justify-center items-center md:gap-12">
         <div class="w-max">
           <a href="/" class="text-4xl bg-black hover:bg-white hover:text-black duration-200 ease-in px-2 font-black tracking-wider uppercase focus:outline-none">LIN.<span class="text-yellow-400">TON</span></a>

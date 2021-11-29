@@ -50,6 +50,7 @@ class TvViewModel extends ViewModel
           : "https://via.placeholder.com/500x750?text=ERROR",
         'first_air_date' => Carbon::parse($tvshow['first_air_date'])->format('M d, Y'),
         'link' => $tvshow['id'] . '/' . Str::slug($tvshow['name']),
+        'vote_average' => Str::limit($tvshow['vote_average'], 3, '')
       ])->only([
         'poster_path', 'id', 'name', 'vote_average', 'first_air_date', 'link'
       ]);

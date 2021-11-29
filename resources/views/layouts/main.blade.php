@@ -20,9 +20,9 @@
 
     @livewireScripts
       
-    @yield('scripts')
-
     @include('partials.footer')
+
+    @yield('scripts')
 
     <!-- fill navbar on scroll -->
     <script>

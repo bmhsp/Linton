@@ -19,17 +19,17 @@ class SeasonsViewModel extends ViewModel
   {
     $seasons = collect($this->seasons['seasons']);
 
-    return collect($seasons)->sortBy('season_number')->map(function ($movie) {
-      return collect($movie)->merge([
-        'poster_path' => $movie['poster_path']
-          ? 'https://image.tmdb.org/t/p/w500' . $movie['poster_path']
+    return collect($seasons)->sortBy('season_number')->map(function ($season) {
+      return collect($season)->merge([
+        'poster_path' => $season['poster_path']
+          ? 'https://image.tmdb.org/t/p/w500' . $season['poster_path']
           : 'https://via.placeholder.com/500x750?text=ERROR',
-        'year_date' => Carbon::parse($movie['air_date'])->format('Y'),
-        'air_date' => $movie['air_date'] != null
-          ? ' aired on ' . Carbon::parse($movie['air_date'])->format('d F Y')
+        'year_date' => Carbon::parse($season['air_date'])->format('Y'),
+        'air_date' => $season['air_date'] != null
+          ? ' aired on ' . Carbon::parse($season['air_date'])->format('d F Y')
           : ' will be aired soon',
-        'season_link' => '/season/' . $movie['season_number'],
-        'overview' => $movie['overview'] ? $movie['overview'] : "We don't have enough data for this series."
+        'season_link' => '/season/' . $season['season_number'],
+        'overview' => $season['overview'] ? $season['overview'] : "We don't have enough data for this series.",
       ]);
     });
   }

@@ -35,6 +35,7 @@ class TvShowViewModel extends ViewModel
       'link' =>  $this->tvshow['id'] . '/' . Str::slug($this->tvshow['name']),
       'created_by' => $this->tvshow['created_by'] ? $this->tvshow['created_by'][0]['name'] : null,
       'episode_run_time' => $this->tvshow['episode_run_time'] ? $this->tvshow['episode_run_time'][0] . 'm' : '0m',
+      'vote_average' => Str::limit($this->tvshow['vote_average'], 3, '')
     ])->only([
       'id', 'name', 'poster_path', 'backdrop_path', 'vote_average', 'type', 'first_air_date', 'videos', 'episode_run_time', 'genres', 'credits', 'seasons', 'networks', 'images', 'overview', 'status', 'created_by', 'production_countries', 'link', 'original_name'
     ]);

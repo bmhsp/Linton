@@ -32,6 +32,7 @@ class MovieViewModel extends ViewModel
 			'budget' => '$' . number_format($this->movie['budget']),
 			'revenue' => '$' . number_format($this->movie['revenue']),
 			'release_date' => Carbon::parse($this->movie['release_date'])->format('d F Y'),
+			'vote_average' => Str::limit($this->movie['vote_average'], 3, '')
 		])->only([
 			'id', 'title', 'original_title', 'backdrop_path', 'poster_path', 'release_date', 'overview', 'videos', 'budget', 'revenue', 'genres', 'vote_average', 'status', 'credits', 'crew', 'homepage'
 		]);

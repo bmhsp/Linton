@@ -39,7 +39,8 @@ class SeasonViewModel extends ViewModel
           ? 'https://image.tmdb.org/t/p/w500' . $episode['still_path']
           : 'https://via.placeholder.com/750x500?text=ERROR',
         'episode_link' => '/episode/' . $episode['episode_number'],
-        'overview' => $episode['overview'] ? $episode['overview'] : "We don't have enough data for this episode"
+        'overview' => $episode['overview'] ? $episode['overview'] : "We don't have enough data for this episode",
+        'vote_average' => Str::limit($episode['vote_average'], 3, '')
       ]);
     });
   }

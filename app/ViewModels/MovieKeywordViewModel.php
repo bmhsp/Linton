@@ -45,6 +45,7 @@ class MovieKeywordViewModel extends ViewModel
         'release_date' => isset($card['release_date'])
           ? Carbon::parse($card['release_date'])->format('M d, Y')
           : 'Future',
+        'vote_average' => Str::limit($card['vote_average'], 3, ''),
         'link' => $card['id'] . '/' . Str::slug($card['title']),
       ])->only([
         'poster_path', 'id', 'title', 'vote_average', 'release_date', 'link'

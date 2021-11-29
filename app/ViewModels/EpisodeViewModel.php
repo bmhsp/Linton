@@ -27,6 +27,7 @@ class EpisodeViewModel extends ViewModel
         : 'https://via.placeholder.com/750x500?text=ERROR',
       'air_date' => Carbon::parse($this->episode['air_date'])->format('d F Y'),
       'overview' => $this->episode['overview'] ? $this->episode['overview'] : "We don't have enough data for this episode",
+      'vote_average' => Str::limit($this->episode['vote_average'], 3, '')
     ]);
   }
 

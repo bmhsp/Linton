@@ -45,6 +45,7 @@ class TvGenreViewModel extends ViewModel
         'first_air_date' => isset($card['first_air_date'])
           ? Carbon::parse($card['first_air_date'])->format('M d, Y')
           : 'Future',
+        'vote_average' => Str::limit($card['vote_average'], 3, ''),
         'link' => $card['id'] . '/' . Str::slug($card['name']),
       ])->only([
         'poster_path', 'id', 'name', 'vote_average', 'first_air_date', 'link'
