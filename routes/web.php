@@ -14,9 +14,9 @@ use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\NetworkController;
 
 Route::get('/register', [AuthController::class, 'register']);
-Route::post('/register', [AuthController::class, 'store']);
 
 Route::get('/login', [AuthController::class, 'login']);
+Route::post('/authenticate', [AuthController::class, 'authenticate']);
 
 Route::get('/', [HomeController::class, 'index']);
 
