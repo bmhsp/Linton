@@ -4,7 +4,7 @@
 
 @include('partials.navbar')
 
-<img src="{{ $getTv['backdrop_path'] }}" alt="{{ $getTv['name'] }}" class="w-full max-h-screen fixed">
+<img src="{{ $getTv['backdrop_path'] }}" alt="{{ $getTv['name'] }}" class="w-full fixed">
 
 <div class="w-full pt-16 z-10 relative">
   <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent bg-opacity-50">
