@@ -13,12 +13,7 @@ use App\Http\Controllers\SeasonsController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\NetworkController;
 
-Route::get('/register', [AuthController::class, 'register']);
-
-Route::get('/login', [AuthController::class, 'login']);
-Route::post('/authenticate', [AuthController::class, 'authenticate']);
-
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/movies', [MoviesController::class, 'index']);
 Route::get('/movies/{id}/{movie}', [MoviesController::class, 'show']);

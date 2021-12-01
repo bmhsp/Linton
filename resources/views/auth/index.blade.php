@@ -41,18 +41,15 @@
                 />
               </div>
             </div>
-            <div class="mb-6 text-center">
+            <div class="mb-3 text-center">
               <button class="w-full px-4 py-2 font-bold text-white bg-yellow-400 rounded-full hover:bg-yellow-600 duration-200 focus:outline-none focus:shadow-outline" type="submit">Login</button>
             </div>
             <hr class="mb-6 border-t"/>
-            <div class="text-center flex flex-col gap-2">
-              <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="/register">Not have an account? Register!</a>
-            </div>
           </form>
-          <form action="/guest" action="GET">
-            @csrf
-            <button class="w-full mx-auto text-sm text-blue-500 align-baseline hover:text-blue-800" type="submit">Login as guest</button>
-          </form>
+          
+          <div class="text-center flex flex-col gap-2">
+            <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="/register">Not have an account? Register!</a>
+          </div>
         </div>
       </div>
     </div>
