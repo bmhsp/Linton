@@ -24,6 +24,7 @@ class CollectionViewModel extends ViewModel
 			'poster_path' => $this->collection['poster_path']
 				? 'https://image.tmdb.org/t/p/w500' . $this->collection['poster_path']
 				:	'https://via.placeholder.com/500x750',
+			'overview' => $this->collection['overview'] ? $this->collection['overview'] : "We don't have enough data for this series"
 		]);
 	}
 

@@ -4,7 +4,7 @@
 
 @include('partials.navbar')
 
-<img src="{{ $season['poster_path'] }}" alt="{{ $getTv['name'] }}" class="w-full fixed">
+<img src="{{ $season['poster_path'] }}" alt="{{ $getTv['name'] }}" class="w-full fixed filter blur-sm">
 
 <div class="w-full pt-16 z-10 relative">
   <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent bg-opacity-50">
@@ -32,7 +32,7 @@
   </div>
 
   @if ($getEpisode != '[]')
-    <div class="episodes bg-gray-900 container px-3 md:px-8 mx-auto divide-y divide-gray-500">
+    <div class="episodes bg-gray-900 bg-opacity-90 container px-3 md:px-8 mx-auto divide-y divide-gray-500">
       @foreach ($getEpisode as $episode)
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-6 lg:col-span-4 py-6">
@@ -44,7 +44,7 @@
           <div class="md:col-span-6 lg:col-span-8 flex flex-col justify-center pb-6 md:py-8">
             <div class="flex gap-3">
               <p class="text-md bg-white text-gray-900 px-2 rounded-full h-max font-semibold">{{ $episode['episode_number'] }}</p>
-              <div class="flex flex-col lg:flex-row lg:justify-between w-full">
+              <div class="flex flex-col lg:flex-row lg:justify-between flex-wrap w-full">
                 <div class="flex items-center gap-4 mb-1">
                   <a href="/tv/{{ $getTv['id'] . $season['season_link'] . $episode['episode_link'] }}">   
                     <h2 class="font-semibold text-lg md:text-xl hover:text-gray-300">{{ $episode['name'] }}</h2>
@@ -59,18 +59,18 @@
                 <p class="text-xs lg:self-center tracking-wide">
                   {{ ($episode['air_date']) }} 
                 </p>
-              </div>
-            </div>
 
-            <div class="mt-3">
-              <p class="pr-8 text-sm hidden lg:block">{{ $episode['overview'] }}</p>
+                <div class="mt-6">
+                  <p class="text-sm hidden lg:block">{{ $episode['overview'] }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       @endforeach
     </div>
   @else
-    <div class="container bg-gray-900 px-3 md:px-8 mx-auto divide-y divide-gray-500">
+    <div class="container bg-gray-900 bg-opacity-90 px-3 md:px-8 mx-auto divide-y divide-gray-500">
       <div class="md:grid md:grid-cols-12 gap-6">
         <div class="md:col-span-6 lg:col-span-4 py-6">
           <img src="https://via.placeholder.com/750x500?text=COMING+SOON" class="hover:opacity-80 duration-200 rounded-lg">

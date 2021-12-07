@@ -4,7 +4,7 @@
 
 @include('partials.navbar')
 
-<img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="w-full fixed">
+<img src="{{ $getSeason['poster_path'] }}" alt="{{ $episode['name'] }}" class="w-full fixed filter blur-sm">
 
 <div class="w-full pt-16 z-40 relative">
   <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent bg-opacity-50">
@@ -32,85 +32,43 @@
   </div>
 
   <!-- episode -->
-  <div class="episode bg-gray-900 container mx-auto px-3 md:px-8 lg:grid lg:grid-cols-12 gap-6">
+  <div class="episode bg-gray-900 bg-opacity-90 container mx-auto px-3 md:px-8 lg:grid lg:grid-cols-12 gap-6">
     <div class="lg:col-span-4 py-6">
       <img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="hover:opacity-80 duration-200 rounded-lg mx-auto"> 
     </div>  
 
-    <div class="lg:col-span-8 flex flex-col justify-center pb-6 lg:py-8">
-      <div class="flex gap-3 justify-between">
+    <div class="lg:col-span-8 flex flex-col justify-center pb-6 lg:py-8 border-b border-gray-500">
+      <div class="flex gap-3 justify-center lg:justify-between flex-wrap lg:flex-nowrap">
         <p class="text-md bg-white text-gray-900 px-2 rounded-full h-max font-semibold">{{ $episode['episode_number'] }}</p>
-        <div class="flex flex-col lg:flex-row lg:justify-between w-full">
-          <div class="flex items-center gap-4 mb-1">
-            <h2 class="font-semibold text-lg md:text-xl hover:text-gray-300">{{ $episode['name'] }}</h2>
-            <div class="flex bg-red-500 text-sm px-2 py-1 rounded-full w-max">
+        <div class="flex flex-col gap-3 lg:gap-0 lg:flex-row lg:justify-between flex-wrap w-full">
+          <div class="flex flex-col lg:flex-row items-center gap-4 lg:mb-1">
+            <h2 class="font-semibold text-lg md:text-xl text-center lg:text-left hover:text-gray-300">{{ $episode['name'] }}</h2>
+            <div class="flex items-center bg-red-500 text-sm px-2 py-1 rounded-full w-max">
               <svg class="text-yellow-300 w-4" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
               <span class="ml-1 text-white font-semibold">{{ $episode['vote_average'] }}</span>
+              <span class="block lg:hidden mx-2">|</span>
+              <span class="block lg:hidden font-semibold tracking-wide">{{ ($episode['air_date']) }}</span>
             </div>
           </div>
-          <p class="text-xs lg:self-center tracking-wide">
+          <p class="hidden lg:block text-xs tracking-wide">
             {{ ($episode['air_date']) }} 
           </p>
+
+          <div class="mt-6">
+            <h3 class="font-semibold mb-1 text-center md:text-left">Overview</h3>
+            <p class="text-sm text-center md:text-left">{{ $episode['overview'] }}</p>
+          </div>
         </div>
       </div>
 
-      <div class="mt-3">
-        <p class="pr-8 text-sm">{{ $episode['overview'] }}</p>
-      </div>
+      
     </div>
   </div>
 
-  <!-- images -->
-  @if ($getImage != '[]')
-    <div class="images relative" x-data="{ image: false , image:''}">
-      <div class="container mx-auto px-3 md:px-8 py-6 bg-white">
-        <h2 class="text-xl font-semibold mb-3 text-black">Screenshoot</h2>
-        <div class="flex overflow-x-scroll rounded-md pb-4">
-          <div class="flex flex-nowrap gap-4">
-            @foreach ($getImage as $image)
-              <div class="inline-block max-w-xs w-max">
-                <button
-                @click.prevent="
-                  image = true
-                  image = '{{ $image['file_path'] }}'
-                "
-                >
-                  <img src="{{ $image['file_path'] }}" alt="{{ $getSeason['name'] }}" class="hover:opacity-75 transition:ease-in duration-200 cursor-pointer">   
-                </button>
-              </div>
-            @endforeach
-          </div>
-        </div>
-
-        <!-- image modal -->
-        <div 
-        class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto z-50" 
-        style="background-color: rgba(0, 0, 0, 0.5)"
-        x-show.transition.opacity="image"
-        >
-          <div class="mx-auto max-w-5xl bg-red-500 px-2 pb-2 rounded-md" @click.away="image = false">
-            <div class="flex justify-between px-3 pb-1">
-              <h2 class="text-xl font-medium tracking-wide self-end">{{ $episode['name'] }}</h2>
-              <button 
-                @click="image = false"
-                @keydown.escape.window= "image = false"
-                class="text-4xl leading-none hover:text-gray-300">&times;
-              </button>
-            </div>
-
-            <div class="relative overflow-hidden px-40 md:px-64 lg:px-96" style="padding-top: 56.25%;">
-              <img :src="image" alt="{{ $episode['name'] }}" class="absolute top-0 left-0 w-full h-full">
-            </div>
-          </div>
-        </div> <!-- end image modal-->
-      </div>
-    </div>
-  @endif
-
   <!-- credit --> 
-  <div class="credit bg-gray-900 container px-3 md:px-8 mx-auto py-6">
+  <div class="credit bg-gray-900 bg-opacity-90 container px-3 md:px-8 mx-auto py-6">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       @if ($getCast != '[]')
         <div class="cast">
@@ -175,6 +133,53 @@
       @endif
     </div>
   </div>
+
+    <!-- images -->
+    @if ($getImage != '[]')
+    <div class="images relative" x-data="{ image: false , image:''}">
+      <div class="container mx-auto px-3 md:px-8 py-6 bg-white">
+        <h2 class="text-xl font-semibold mb-3 text-black">Screenshoot</h2>
+        <div class="flex overflow-x-scroll rounded-md pb-4">
+          <div class="flex flex-nowrap gap-4">
+            @foreach ($getImage as $image)
+              <div class="inline-block max-w-xs w-max">
+                <button
+                @click.prevent="
+                  image = true
+                  image = '{{ $image['file_path'] }}'
+                "
+                >
+                  <img src="{{ $image['file_path'] }}" alt="{{ $getSeason['name'] }}" class="hover:opacity-75 transition:ease-in duration-200 cursor-pointer">   
+                </button>
+              </div>
+            @endforeach
+          </div>
+        </div>
+
+        <!-- image modal -->
+        <div 
+        class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto z-50" 
+        style="background-color: rgba(0, 0, 0, 0.5)"
+        x-show.transition.opacity="image"
+        >
+          <div class="mx-auto max-w-5xl bg-red-500 px-2 pb-2 rounded-md" @click.away="image = false">
+            <div class="flex justify-between px-3 pb-1">
+              <h2 class="text-xl font-medium tracking-wide self-end">{{ $episode['name'] }}</h2>
+              <button 
+                @click="image = false"
+                @keydown.escape.window= "image = false"
+                class="text-4xl leading-none hover:text-gray-300">&times;
+              </button>
+            </div>
+
+            <div class="relative overflow-hidden px-40 md:px-64 lg:px-96" style="padding-top: 56.25%;">
+              <img :src="image" alt="{{ $episode['name'] }}" class="absolute top-0 left-0 w-full h-full">
+            </div>
+          </div>
+        </div> <!-- end image modal-->
+      </div>
+    </div>
+  @endif
 </div>
 
  @endsection

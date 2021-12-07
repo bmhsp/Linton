@@ -21,6 +21,14 @@ class PersonViewModel extends ViewModel
 
 	public function person()
 	{
+		if ($this->person['gender'] == '1') {
+			$gender = 'Female';
+		} elseif ($this->person['gender'] == '2') {
+			$gender = 'Male';
+		} else {
+			$gender = 'Uknown';
+		}
+
 		return collect($this->person)->merge([
 			'birthday' => Carbon::parse($this->person['birthday'])->format('d F Y'),
 			'age' => Carbon::parse($this->person['birthday'])->age,
@@ -30,7 +38,7 @@ class PersonViewModel extends ViewModel
 			'profile_path' => $this->person['profile_path']
 				? 'https://image.tmdb.org/t/p/w300/' . $this->person['profile_path']
 				:  'https://ui-avatars.com/api/?size=235&name=' . $this->person['name'],
-			'gender' => $this->person['gender'] == '1' ? 'Female' : 'Male',
+			'gender' => $gender,
 		]);
 	}
 

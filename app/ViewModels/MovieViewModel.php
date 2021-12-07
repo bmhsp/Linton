@@ -29,8 +29,12 @@ class MovieViewModel extends ViewModel
 				? 'https://image.tmdb.org/t/p/w500' . $this->movie['backdrop_path']
 				: 'https://via.placeholder.com/750x500?text=ERROR',
 			'overview' => $this->movie['overview'] ? $this->movie['overview'] : "Sorry we don't have enough data for this movie.",
-			'budget' => '$' . number_format($this->movie['budget']),
-			'revenue' => '$' . number_format($this->movie['revenue']),
+			'budget' => $this->movie['budget']
+				? '$' . number_format($this->movie['budget'])
+				: 'Unknown',
+			'revenue' => $this->movie['revenue']
+				? '$' . number_format($this->movie['revenue'])
+				: 'Unknown',
 			'release_date' => Carbon::parse($this->movie['release_date'])->format('d F Y'),
 			'vote_average' => Str::limit($this->movie['vote_average'], 3, '')
 		])->only([

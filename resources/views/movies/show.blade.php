@@ -59,7 +59,7 @@
               </div>
 
               <!-- smaller images under description -->
-              <div class="w-full object-cover flex justify-center gap-3 md:gap-1 border border-red-500">
+              <div class="w-full object-cover flex justify-center gap-2 md:gap-1 lg:gap-8 mt-2 border border-red-500">
                 @foreach ($getVideo as $video)
                   <img class="description h-12 md:h-24 opacity-50 hover:opacity-100 cursor-pointer" src="{{ $video['thumbnail'] }}" onclick="currentSlide({{ $loop->iteration }})" alt="{{ $video['name'] }}">
                 @endforeach
@@ -154,7 +154,9 @@
       @if ($movie['homepage'])
         <div class="mb-3">
           <h3 class="font-medium mb-1">Website</h3>
-          <a href="{{ $movie['homepage'] }}" target="_blank" class="text-blue-600 hover:text-blue-700 duration-200"><i class="fas fa-globe-asia mr-1"></i>{{ $movie['title'] }}</a>
+          <a href="{{ $movie['homepage'] }}" target="_blank" class="text-blue-600 hover:text-blue-700 duration-200">
+            <p>{{ $movie['homepage'] }}</p>
+          </a>
         </div>
       @endif
       <div class="mb-3">
