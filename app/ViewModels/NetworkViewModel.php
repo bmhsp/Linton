@@ -21,6 +21,7 @@ class NetworkViewModel extends ViewModel
   {
     return collect($this->networks)->merge([
       'logo_path' => 'https://image.tmdb.org/t/p/w500' . $this->networks['logo_path'],
+      'origin_country' => $this->networks['origin_country'] ? $this->networks['origin_country'] : 'Unknown',
     ]);
   }
 

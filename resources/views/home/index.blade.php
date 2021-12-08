@@ -8,9 +8,9 @@
 </div>
 
 <div class="w-full pt-20 pb-12 z-10 relative">
-  <div class="container px-6 lg:px-8 py-6 mx-auto bg-gray-900 bg-opacity-90 md:rounded-t-xl">
-    <h1 class="text-3xl font-black tracking-wide uppercase">Lin.<span class="text-yellow-400">ton</span></h1>
-    <p class="mt-2 text-sm md:text-base leading-relaxed">Movies, TV Shows, and person are ready to discover. <a href="/movies" class="px-1 bg-yellow-400 hover:bg-yellow-500 duration-200 font-semibold tracking-wide">Explore Now.</a></p>
+  <div class="container px-6 lg:px-8 py-6 mx-auto bg-yellow-400 bg-opacity-90 md:rounded-t-xl">
+    <h1 class="text-3xl font-black tracking-wide uppercase">Lin.<span class="text-black">ton</span></h1>
+    <p class="mt-2 text-sm md:text-base leading-relaxed font-medium text-black">Movies, TV Shows, and person are ready to discover. <a href="/movies" class="px-1 text-white bg-black font-semibold tracking-wide">Explore Now.</a></p>
   </div>
 
   <!-- movies -->
