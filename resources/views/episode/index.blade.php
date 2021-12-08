@@ -4,10 +4,10 @@
 
 @include('partials.navbar')
 
-<img src="{{ $getSeason['poster_path'] }}" alt="{{ $episode['name'] }}" class="w-full fixed filter blur-sm">
+<img src="{{ $getSeason['poster_path'] }}" alt="{{ $episode['name'] }}" class="w-full absolute md:fixed">
 
-<div class="w-full pt-16 z-40 relative">
-  <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent bg-opacity-50">
+<div class="w-full pt-20 pb-12 z-40 relative">
+  <div class="container px-6 lg:px-8 py-2 md:py-6 mx-auto bg-yellow-400 bg-opacity-90 md:rounded-t-xl">
     <div class="flex items-center gap-3 py-3">
       <a href="/tv/{{ $getTv['id'] . $getSeason['season_link'] }}">
         <img src="{{ $getSeason['poster_path'] }}" alt="{{ $getSeason['name'] }}" class="w-16 rounded-md hover:opacity-75 duration-200">
@@ -32,7 +32,7 @@
   </div>
 
   <!-- episode -->
-  <div class="episode bg-gray-900 bg-opacity-90 container mx-auto px-3 md:px-8 lg:grid lg:grid-cols-12 gap-6">
+  <div class="episode bg-gray-900 container mx-auto px-3 md:px-8 lg:grid lg:grid-cols-12 gap-6">
     <div class="lg:col-span-4 py-6">
       <img src="{{ $episode['still_path'] }}" alt="{{ $episode['name'] }}" class="hover:opacity-80 duration-200 rounded-lg mx-auto"> 
     </div>  
@@ -68,7 +68,7 @@
   </div>
 
   <!-- credit --> 
-  <div class="credit bg-gray-900 bg-opacity-90 container px-3 md:px-8 mx-auto py-6">
+  <div class="credit bg-gray-900 container px-3 md:px-8 mx-auto py-6">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       @if ($getCast != '[]')
         <div class="cast">
@@ -134,10 +134,10 @@
     </div>
   </div>
 
-    <!-- images -->
-    @if ($getImage != '[]')
+  <!-- images -->
+  @if ($getImage != '[]')
     <div class="images relative" x-data="{ image: false , image:''}">
-      <div class="container mx-auto px-3 md:px-8 py-6 bg-white">
+      <div class="container mx-auto px-3 md:px-8 py-6 bg-white md:rounded-b-xl">
         <h2 class="text-xl font-semibold mb-3 text-black">Screenshoot</h2>
         <div class="flex overflow-x-scroll rounded-md pb-4">
           <div class="flex flex-nowrap gap-4">

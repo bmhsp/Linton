@@ -4,10 +4,10 @@
 
 @include('partials.navbar')
 
-<img src="{{ $getTv['backdrop_path'] }}" alt="{{ $getTv['name'] }}" class="w-full absolute lg:fixed filter blur-sm">
+<img src="{{ $getTv['backdrop_path'] }}" alt="{{ $getTv['name'] }}" class="w-full absolute lg:fixed ">
 
-<div class="w-full pt-16 z-10 relative">
-  <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent">
+<div class="w-full pt-20 pb-12 z-10 relative">
+  <div class="container px-6 lg:px-8 py-2 md:py-6 mx-auto bg-yellow-400 bg-opacity-90 md:rounded-t-xl">
     <div class="flex items-center gap-3 py-3">
       <a href="/tv/{{ $getTv['slug'] }}">
         <img src="{{ $getTv['tv_poster'] }}" alt="{{ $getTv['name'] }}" class="w-16 rounded-md hover:opacity-75 duration-200">
@@ -33,7 +33,7 @@
   </div>
 
   <!-- seasons -->
-  <div class="seasons bg-gray-900 bg-opacity-90 container px-3 md:px-8 mx-auto divide-y divide-gray-500">
+  <div class="seasons bg-gray-900 bg-opacity-90 container px-3 md:px-8 mx-auto divide-y divide-gray-500 md:rounded-b-xl">
     @foreach ($seasons as $season)
       <div class="grid grid-cols-12 gap-6">
         <div class="col-span-4 md:col-span-2 py-6">

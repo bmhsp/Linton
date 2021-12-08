@@ -90,7 +90,7 @@ class EpisodeViewModel extends ViewModel
   {
     return collect($this->season)->merge([
       'poster_path' => $this->season['poster_path']
-        ? 'https://image.tmdb.org/t/p/w500' . $this->season['poster_path']
+        ? 'https://image.tmdb.org/t/p/original' . $this->season['poster_path']
         : 'https://via.placeholder.com/500x750?ERROR',
       'season_link' =>  '/season/' . $this->season['season_number'],
       'year_date' => Carbon::parse($this->season['air_date'])->format('Y'),

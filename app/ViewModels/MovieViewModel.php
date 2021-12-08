@@ -26,7 +26,7 @@ class MovieViewModel extends ViewModel
 				? 'https://image.tmdb.org/t/p/w500' . $this->movie['poster_path']
 				: 'https://via.placeholder.com/500x750?text=ERROR',
 			'backdrop_path' => $this->movie['backdrop_path']
-				? 'https://image.tmdb.org/t/p/w500' . $this->movie['backdrop_path']
+				? 'https://image.tmdb.org/t/p/original' . $this->movie['backdrop_path']
 				: 'https://via.placeholder.com/750x500?text=ERROR',
 			'overview' => $this->movie['overview'] ? $this->movie['overview'] : "Sorry we don't have enough data for this movie.",
 			'budget' => $this->movie['budget']

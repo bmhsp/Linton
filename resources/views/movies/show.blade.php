@@ -9,7 +9,7 @@
   </div>
 
   <!-- movie main -->
-  <div class="movie-main relative lg:bg-gradient-to-r from-gray-900 to-transparant lg:h-screen lg:flex items-center lg:pt-16 border-b border-gray-500 lg:border-none">
+  <div class="movie-main relative lg:h-screen lg:flex items-center lg:bg-gradient-to-t from-gray-900 lg:pt-16 border-b border-gray-500 lg:border-none">
     <div class="container mx-auto px-8 py-8 grid grid-cols-1 lg:grid-cols-4">
       <div class="h-max lg:col-span-1 mt-12 md:mt-24 lg:mt-0">
         <img src="{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}" class="w-1/3 mx-auto lg:w-full rounded-md lg:rounded-none lg:rounded-t-md">

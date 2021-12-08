@@ -42,7 +42,7 @@ class SeasonsViewModel extends ViewModel
         ? 'https://image.tmdb.org/t/p/w500' . $this->seasons['poster_path']
         : 'https://via.placeholder.com/500x750?text=ERROR',
       'backdrop_path' => $this->seasons['backdrop_path']
-        ? 'https://image.tmdb.org/t/p/w500' . $this->seasons['backdrop_path']
+        ? 'https://image.tmdb.org/t/p/original' . $this->seasons['backdrop_path']
         : 'https://via.placeholder.com/750x500?text=ERROR',
       'tv_year_date' => Carbon::parse($this->seasons['first_air_date'])->format('Y'),
     ])->only([

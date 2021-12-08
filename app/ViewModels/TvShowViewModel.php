@@ -26,7 +26,7 @@ class TvShowViewModel extends ViewModel
         ? 'https://image.tmdb.org/t/p/w500' . $this->tvshow['poster_path']
         : "https://via.placeholder.com/500x750?text=ERROR",
       'backdrop_path' => $this->tvshow['backdrop_path']
-        ? 'https://image.tmdb.org/t/p/w500' . $this->tvshow['backdrop_path']
+        ? 'https://image.tmdb.org/t/p/original' . $this->tvshow['backdrop_path']
         : 'https://via.placeholder.com/750x500?text=ERROR',
       'production_countries' => $this->tvshow['production_countries']
         ? $this->tvshow['production_countries'][0]['name']

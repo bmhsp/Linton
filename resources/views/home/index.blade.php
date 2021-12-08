@@ -4,13 +4,13 @@
 
 @include('partials.navbar')
 
-<div class="bg-path bg-cover filter blur-sm w-screen h-screen fixed">
+<div class="bg-path bg-cover w-screen h-screen fixed">
 </div>
 
 <div class="w-full pt-20 pb-12 z-10 relative">
-  <div class="container px-6 lg:px-8 py-6 mx-auto bg-gray-900 bg-opacity-90">
+  <div class="container px-6 lg:px-8 py-6 mx-auto bg-gray-900 bg-opacity-90 md:rounded-t-xl">
     <h1 class="text-3xl font-black tracking-wide uppercase">Lin.<span class="text-yellow-400">ton</span></h1>
-    <p class="mt-2 text-sm md:text-base">Movies, TV Shows, and person are ready to discover. <a href="/movies" class="px-1 bg-yellow-400 hover:bg-yellow-500 duration-200 font-semibold tracking-wide">Explore Now.</a></p>
+    <p class="mt-2 text-sm md:text-base leading-relaxed">Movies, TV Shows, and person are ready to discover. <a href="/movies" class="px-1 bg-yellow-400 hover:bg-yellow-500 duration-200 font-semibold tracking-wide">Explore Now.</a></p>
   </div>
 
   <!-- movies -->
@@ -34,7 +34,7 @@
   </div>
 
   <!-- persons -->
-  <div class="persons container px-6 lg:px-8 py-6 mx-auto bg-gray-900 bg-opacity-90">
+  <div class="persons container px-6 lg:px-8 py-6 mx-auto bg-gray-900 bg-opacity-90 md:rounded-b-xl">
     <h2 class="text-xl font-semibold uppercase mb-5 pl-2 text-yellow-400">trending people</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
       @foreach ($persons as $person)

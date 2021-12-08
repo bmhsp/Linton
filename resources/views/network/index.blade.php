@@ -4,11 +4,11 @@
 
 @include('partials.navbar')
 
-<div class="bg-path bg-cover w-screen h-screen fixed">
+<div class="bg-path bg-cover w-screen h-screen fixed filter blur-sm">
 </div>
 
 <div class="w-full pt-20 pb-12 relative">
-  <div class="container px-3 md:px-8 mx-auto flex gap-6 bg-gray-900 bg-opacity-90 border-b">
+  <div class="container px-3 md:px-8 mx-auto flex gap-6 bg-gray-900 bg-opacity-90 md:rounded-t-xl">
     <div class="py-4 self-center w-1/5">
       <img src="{{ $networks['logo_path'] }}" alt="{{ $networks['name'] }}" class="w-full md:w-3/4 lg:w-1/2 cursor-pointer p-1">
     </div>
@@ -35,7 +35,7 @@
   </div>
 
   <!-- results -->
-  <div class="results bg-gray-900 bg-opacity-90 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 container px-3 md:px-8 py-6 mx-auto">  
+  <div class="results bg-gray-900 bg-opacity-90 md:rounded-b-xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 container px-3 md:px-8 py-6 mx-auto">  
     @foreach ($tv as $tvshow)
       <x-tv-card :tvshow="$tvshow" />
     @endforeach

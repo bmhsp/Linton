@@ -9,7 +9,7 @@
 </div>
 
   <!-- tv main -->
-  <div class="tv-main relative lg:bg-gradient-to-r from-gray-900 to-transparant lg:h-screen lg:flex items-center lg:pt-16 border-b border-gray-500 lg:border-none">
+  <div class="tv-main relative lg:h-screen lg:flex items-center lg:bg-gradient-to-t from-gray-900 lg:pt-16 border-b border-gray-500 lg:border-none">
     <div class="container mx-auto px-8 py-8 grid grid-cols-1 lg:grid-cols-4">
       <div class="h-max lg:col-span-1 mt-12 md:mt-24 lg:mt-0">
         <img src="{{ $tvshow['poster_path'] }}" alt="{{ $tvshow['name'] }}" class="w-1/3 mx-auto lg:w-full rounded-md lg:rounded-none lg:rounded-t-md">
@@ -59,7 +59,7 @@
             </div>
 
             <!-- smaller images under description -->
-            <div class="w-full object-cover flex justify-center gap-3 md:gap-1 border border-red-500">
+            <div class="w-full object-cover flex justify-center gap-2 md:gap-1 lg:gap-8 mt-2 border border-red-500">
               @foreach ($getVideo as $video)
                 <img class="description h-12 md:h-24 opacity-50 hover:opacity-100 cursor-pointer" src="{{ $video['thumbnail'] }}" onclick="currentSlide({{ $loop->iteration }})" alt="{{ $video['name'] }}">
               @endforeach

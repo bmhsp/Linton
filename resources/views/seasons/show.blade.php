@@ -4,10 +4,10 @@
 
 @include('partials.navbar')
 
-<img src="{{ $season['poster_path'] }}" alt="{{ $getTv['name'] }}" class="w-full fixed filter blur-sm">
+<img src="{{ $season['poster_path'] }}" alt="{{ $getTv['name'] }}" class="w-full absolute md:fixed">
 
-<div class="w-full pt-16 z-10 relative">
-  <div class="container px-6 lg:px-8 py-6 mx-auto bg-gradient-to-r from-gray-900 to-transparent bg-opacity-50">
+<div class="w-full pt-20 pb-12 z-10 relative">
+  <div class="container px-6 lg:px-8 py-2 md:py-6 mx-auto bg-yellow-400 bg-opacity-90 md:rounded-t-xl">
     <div class="flex items-center gap-3 py-3">
       <a href="/tv/{{ $getTv['id'] . $season['season_link'] }}">
         <img src="{{ $season['poster_path'] }}" alt="{{ $season['name'] }}" class="w-16 rounded-md hover:opacity-75 duration-200">
@@ -32,7 +32,7 @@
   </div>
 
   @if ($getEpisode != '[]')
-    <div class="episodes bg-gray-900 bg-opacity-90 container px-3 md:px-8 mx-auto divide-y divide-gray-500">
+    <div class="episodes bg-gray-900 md:opacity-90 container px-3 md:px-8 mx-auto divide-y divide-gray-500 md:rounded-b-xl">
       @foreach ($getEpisode as $episode)
         <div class="md:grid md:grid-cols-12 gap-6">
           <div class="md:col-span-6 lg:col-span-4 py-6">
@@ -70,7 +70,7 @@
       @endforeach
     </div>
   @else
-    <div class="container bg-gray-900 bg-opacity-90 px-3 md:px-8 mx-auto divide-y divide-gray-500">
+    <div class="container bg-gray-900 md:opacity-90 px-3 md:px-8 mx-auto divide-y divide-gray-500 md:rounded-b-xl">
       <div class="md:grid md:grid-cols-12 gap-6">
         <div class="md:col-span-6 lg:col-span-4 py-6">
           <img src="https://via.placeholder.com/750x500?text=COMING+SOON" class="hover:opacity-80 duration-200 rounded-lg">
